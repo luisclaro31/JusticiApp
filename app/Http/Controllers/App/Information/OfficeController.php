@@ -32,8 +32,8 @@ class OfficeController extends Controller
     public function create()
     {
         $results = Office::with('Speciality', 'Location')->orderBy('id', 'DECS')->paginate(5);
-        $speciality = Speciality::lists('description', 'id')->toArray();
-        $location = Location::lists('description', 'id')->toArray();
+        $speciality = Speciality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $location = Location::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         return view('app.information.office.create', compact('results', 'speciality', 'location'));
     }
 
@@ -71,8 +71,8 @@ class OfficeController extends Controller
     {
         $result = Office::findOrFail($id);
         $results = Office::orderBy('id', 'DECS')->paginate(5);
-        $speciality = Speciality::lists('description', 'id')->toArray();
-        $location = Location::lists('description', 'id')->toArray();
+        $speciality = Speciality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $location = Location::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         return view('app.information.office.edit', compact('result', 'results', 'speciality', 'location'));
     }
 

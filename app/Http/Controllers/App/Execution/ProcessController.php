@@ -76,11 +76,11 @@ class ProcessController extends Controller
     public function show(Request $request, $id)
     {
         $query = Requestss::all();
-        $parts = Part::lists('description', 'id')->toArray();
-        $actors = User::whereNotIn('type_id', [1,2])->lists('full_name', 'id')->toArray();
-        $specialities =  Speciality::lists('description', 'id')->toArray();
-        $offices = Office::specialities($request->get('speciality'))->lists('description', 'id')->toArray();
-        $office_stages = OfficeStages::lists('description', 'id')->toArray();
+        $parts = Part::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $actors = User::whereNotIn('type_id', [1,2])->orderBy('description', 'ASC')->lists('full_name', 'id')->toArray();
+        $specialities = Speciality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $offices = Office::specialities($request->get('speciality'))->orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $office_stages = OfficeStages::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $process_actors = ProcessActors::with('Process', 'User', 'Part')->where('process_id', $id)->orderBy('part_id', 'ASC')->get();
         $process_offices = ProcessOffices::with('Office', 'Stage')->where('process_id', $id)->orderBy('stage_id', 'ASC')->get();
         $process_audiences = ProcessAudiences::with('Office')->where('process_id', $id)->orderBy('date', 'DECS')->get();
