@@ -24,7 +24,7 @@ class LocationCreateRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|unique:locations|alpha|max:30'
+            'description' => 'required|unique:locations|max:30'
         ];
     }
 }

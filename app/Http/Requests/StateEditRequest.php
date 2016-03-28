@@ -32,7 +32,7 @@ class StateEditRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|alpha|max:30|unique:states,description,' . $this->route->getParameter('state'),
+            'description' => 'required|max:30|unique:states,description,' . $this->route->getParameter('state'),
         ];
     }
 }

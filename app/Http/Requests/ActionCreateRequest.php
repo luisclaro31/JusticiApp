@@ -24,7 +24,7 @@ class ActionCreateRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|unique:actions|alpha|max:30'
+            'description' => 'required|unique:actions|max:30'
         ];
     }
 }

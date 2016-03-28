@@ -15,42 +15,6 @@
             <a href="{{ url('/') }}"><i class="fa fa-home fa-fw"></i> Home</a>
         </li>
         <li>
-            <a href="#"><i class="fa fa-tasks fa-fw"></i> Proceso<span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-                <li>
-                    <a href="{{ url('/execution/process/create') }}">Crear Proceso</a>
-                </li>
-                <li>
-                    <a href="{{ url('/execution/process') }}">Lista De Procesos</a>
-                </li>
-                <li>
-                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                    <ul class="nav nav-third-level">
-                        <li>
-                            <a href="#">Third Level Item</a>
-                        </li>
-                        <li>
-                            <a href="#">Third Level Item</a>
-                        </li>
-                        <li>
-                            <a href="#">Third Level Item</a>
-                        </li>
-                        <li>
-                            <a href="#">Third Level Item</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="{{ url('/user/actor/') }}"><i class="fa fa-users fa-fw"></i> Actores<span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-                <li>
-                    <a href="{{ url('/user/actor/create') }}"><i class="fa fa-user-plus fa-fw"></i> Crear</a>
-                </li>
-            </ul>
-        </li>
-        <li>
             <a href="#"><i class="fa fa-cog fa-spin"></i> Configuracion de Datos<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
@@ -83,30 +47,21 @@
             </ul>
         </li>
         <li>
-            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+            <a href="{{ url('/user/actor/') }}"><i class="fa fa-users fa-fw"></i> Actores<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
-                    <a href="#">Second Level Item</a>
+                    <a href="{{ url('/user/actor/create') }}"><i class="fa fa-user-plus fa-fw"></i> Crear</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-tasks fa-fw"></i> Proceso<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li>
+                    <a href="{{ url('/execution/process/create') }}">Crear Proceso</a>
                 </li>
                 <li>
-                    <a href="#">Second Level Item</a>
-                </li>
-                <li>
-                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                    <ul class="nav nav-third-level">
-                        <li>
-                            <a href="#">Third Level Item</a>
-                        </li>
-                        <li>
-                            <a href="#">Third Level Item</a>
-                        </li>
-                        <li>
-                            <a href="#">Third Level Item</a>
-                        </li>
-                        <li>
-                            <a href="#">Third Level Item</a>
-                        </li>
-                    </ul>
+                    <a href="{{ url('/execution/process') }}">Lista De Procesos</a>
                 </li>
             </ul>
         </li>

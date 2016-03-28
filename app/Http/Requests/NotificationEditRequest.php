@@ -32,7 +32,7 @@ class NotificationEditRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|alpha|max:30|unique:notifications,description,' . $this->route->getParameter('notification'),
+            'description' => 'required|max:30|unique:notifications,description,' . $this->route->getParameter('notification'),
         ];
     }
 }

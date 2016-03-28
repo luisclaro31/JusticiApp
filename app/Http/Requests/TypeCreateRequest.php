@@ -24,7 +24,7 @@ class TypeCreateRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|unique:types|alpha|max:30'
+            'description' => 'required|unique:types|max:30'
         ];
     }
 }

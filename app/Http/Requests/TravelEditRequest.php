@@ -32,7 +32,7 @@ class TravelEditRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|alpha|max:30|unique:travels,description,' . $this->route->getParameter('travel'),
+            'description' => 'required|max:30|unique:travels,description,' . $this->route->getParameter('travel'),
         ];
     }
 }

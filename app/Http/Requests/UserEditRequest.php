@@ -41,7 +41,7 @@ class UserEditRequest extends Request
             'address'           => '',
             'image'             => '',
             'details'           => '',
-            'email'             => 'required|email|max:255|unique:users,email,' . $this->route->getParameter('actor'),
+            'email'             => 'email|max:255|unique:users,email,' . $this->route->getParameter('actor'),
             'password'          => 'confirmed|min:6',
             'type_id'           => 'required|exists:types,id',
         ];

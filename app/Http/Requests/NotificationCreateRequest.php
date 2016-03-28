@@ -24,7 +24,7 @@ class NotificationCreateRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|unique:notifications|alpha|max:30'
+            'description' => 'required|unique:notifications|max:30'
         ];
     }
 }

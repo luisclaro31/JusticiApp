@@ -32,7 +32,7 @@ class TypeEditRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|alpha|max:30|unique:types,description,' . $this->route->getParameter('type'),
+            'description' => 'required|max:30|unique:types,description,' . $this->route->getParameter('type'),
         ];
     }
 }
