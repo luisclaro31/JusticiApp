@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Actores</h1>
+                <h1 class="page-header">Personas</h1>
             </div>
         </div>
         <div class="row">

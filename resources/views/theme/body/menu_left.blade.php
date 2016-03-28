@@ -47,7 +47,7 @@
             </ul>
         </li>
         <li>
-            <a href="{{ url('/user/actor/') }}"><i class="fa fa-users fa-fw"></i> Actores<span class="fa arrow"></span></a>
+            <a href="{{ url('/user/actor/') }}"><i class="fa fa-users fa-fw"></i> Personas<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
                     <a href="{{ url('/user/actor/create') }}"><i class="fa fa-user-plus fa-fw"></i> Crear</a>
