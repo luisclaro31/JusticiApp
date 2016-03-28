@@ -44,12 +44,12 @@ class ProcessController extends Controller
      */
     public function create()
     {
-        $states = State::lists('description', 'id')->toArray();
-        $stages = Stage::lists('description', 'id')->toArray();
-        $travels = Travel::lists('description', 'id')->toArray();
-        $users = User::where('type_id', [2])->lists('full_name', 'id')->toArray();
-        $municipalities = Municipality::lists('description', 'id')->toArray();
-        $actions = Action::lists('description', 'id')->toArray();
+        $states = State::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $stages = Stage::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $travels = Travel::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $users = User::where('type_id', [2])->orderBy('description', 'ASC')->lists('full_name', 'id')->toArray();
+        $municipalities = Municipality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $actions = Action::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $results = Action::orderBy('id', 'DECS')->paginate(5);
         return view('app.execution.process.create', compact('results', 'users', 'municipalities', 'actions', 'states', 'stages', 'travels'));
     }
