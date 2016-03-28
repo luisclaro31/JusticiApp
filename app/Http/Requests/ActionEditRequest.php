@@ -32,7 +32,7 @@ class ActionEditRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|max:30|unique:actions,description,' . $this->route->getParameter('action'),
+            'description' => 'required|max:50|unique:actions,description,' . $this->route->getParameter('action'),
         ];
     }
 }

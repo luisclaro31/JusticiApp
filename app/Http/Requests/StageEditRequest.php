@@ -32,7 +32,7 @@ class StageEditRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|max:30|unique:stages,description,' . $this->route->getParameter('stage'),
+            'description' => 'required|max:50|unique:stages,description,' . $this->route->getParameter('stage'),
         ];
     }
 }

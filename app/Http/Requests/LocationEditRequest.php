@@ -32,7 +32,7 @@ class LocationEditRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|max:30|unique:locations,description,' . $this->route->getParameter('location'),
+            'description' => 'required|max:50|unique:locations,description,' . $this->route->getParameter('location'),
         ];
     }
 }

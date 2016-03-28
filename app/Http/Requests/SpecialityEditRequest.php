@@ -32,7 +32,7 @@ class SpecialityEditRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|max:30|unique:specialities,description,' . $this->route->getParameter('speciality'),
+            'description' => 'required|max:50|unique:specialities,description,' . $this->route->getParameter('speciality'),
         ];
     }
 }

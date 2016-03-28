@@ -24,7 +24,7 @@ class SpecialityCreateRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|unique:specialities|max:30'
+            'description' => 'required|unique:specialities|max:50'
         ];
     }
 }

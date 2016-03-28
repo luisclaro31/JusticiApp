@@ -24,7 +24,7 @@ class TravelCreateRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|unique:travels|max:30'
+            'description' => 'required|unique:travels|max:50'
         ];
     }
 }

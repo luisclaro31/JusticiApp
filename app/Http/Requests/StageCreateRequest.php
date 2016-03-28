@@ -24,7 +24,7 @@ class StageCreateRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|unique:stages|max:30'
+            'description' => 'required|unique:stages|max:50'
         ];
     }
 }

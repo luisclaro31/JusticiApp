@@ -24,7 +24,7 @@ class StateCreateRequest extends Request
     public function rules()
     {
         return [
-            'description' => 'required|unique:states|max:30'
+            'description' => 'required|unique:states|max:50'
         ];
     }
 }
