@@ -47,7 +47,7 @@ class ProcessController extends Controller
         $states = State::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $stages = Stage::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $travels = Travel::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
-        $users = User::where('type_id', [2])->orderBy('description', 'ASC')->lists('full_name', 'id')->toArray();
+        $users = User::where('type_id', [2])->orderBy('full_name', 'ASC')->lists('full_name', 'id')->toArray();
         $municipalities = Municipality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $actions = Action::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $results = Action::orderBy('id', 'DECS')->paginate(5);
