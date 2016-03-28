@@ -6,7 +6,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="description" content="Lawyers App">
             <meta name="author" content="Lawyers App">
-            <title>Lawyers App</title>
+            <title>JusticiApp</title>
             @include('theme.head.style')
         </head>
         <body>

@@ -3,12 +3,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Home</h1>
+                    <h1 class="page-header">Inicio</h1>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="jumbotron">
-                            <h1>Lawyers App</h1>
+                            <h1>JusticiApp</h1>
                             <p>Es una herramienta creada ante la necesidad de mantener una
                                 correcta organización del devenir procesal de los diferentes asuntos que se
                                 adelantan en los despachos judiciales, es sencilla de manejar, entendible

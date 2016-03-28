@@ -12,7 +12,7 @@
             <!-- /input-group -->
         </li>
         <li>
-            <a href="{{ url('/') }}"><i class="fa fa-home fa-fw"></i> Home</a>
+            <a href="{{ url('/') }}"><i class="fa fa-home fa-fw"></i> Inicio</a>
         </li>
         <li>
             <a href="#"><i class="fa fa-cog fa-spin"></i> Configuracion de Datos<span class="fa arrow"></span></a>
