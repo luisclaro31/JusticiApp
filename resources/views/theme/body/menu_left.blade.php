@@ -55,7 +55,7 @@
             </ul>
         </li>
         <li>
-            <a href="#"><i class="fa fa-tasks fa-fw"></i> Proceso<span class="fa arrow"></span></a>
+            <a href="#"><i class="fa fa-tasks fa-fw"></i> Procesos<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
                     <a href="{{ url('/execution/process/create') }}">Crear Proceso</a>

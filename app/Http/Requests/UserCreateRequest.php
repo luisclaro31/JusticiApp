@@ -32,7 +32,7 @@ class UserCreateRequest extends Request
             'address'           => '',
             'image'             => '',
             'details'           => '',
-            'email'             => 'email|max:255|unique:users',
+            'email'             => 'email|max:255',
             'password'          => 'confirmed|min:6',
             'type_id'           => 'required|exists:types,id',
 
