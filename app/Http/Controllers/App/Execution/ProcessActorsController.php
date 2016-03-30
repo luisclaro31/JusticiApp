@@ -88,6 +88,8 @@ class ProcessActorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = ProcessActors::findOrFail($id);
+        $result->delete();
+        return Redirect::back();
     }
 }

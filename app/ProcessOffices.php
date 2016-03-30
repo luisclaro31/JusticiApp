@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProcessOffices extends Model
 {
     protected $fillable = [
-        'process_id', 'office_id', 'stage_id'
+        'process_id', 'office_id', 'stage_id', 'date',
     ];
 
     public function Office()

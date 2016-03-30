@@ -21,8 +21,6 @@ class CreateProcessesTable extends Migration
             $table->mediumText('details')->nullable();
             $table->integer('action_id')->unsigned()->nullable();
             $table->foreign('action_id')->references('id')->on('actions')->onDelete('cascade');
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('state_id')->unsigned()->nullable();
             $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
             $table->integer('stage_id')->unsigned()->nullable();

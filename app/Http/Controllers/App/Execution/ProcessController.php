@@ -47,11 +47,10 @@ class ProcessController extends Controller
         $states = State::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $stages = Stage::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $travels = Travel::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
-        $users = User::where('type_id', [2])->orderBy('full_name', 'ASC')->lists('full_name', 'id')->toArray();
         $municipalities = Municipality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $actions = Action::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $results = Action::orderBy('id', 'DECS')->paginate(5);
-        return view('app.execution.process.create', compact('results', 'users', 'municipalities', 'actions', 'states', 'stages', 'travels'));
+        return view('app.execution.process.create', compact('results', 'municipalities', 'actions', 'states', 'stages', 'travels'));
     }
 
     /**
@@ -78,6 +77,7 @@ class ProcessController extends Controller
         $query = Requestss::all();
         $parts = Part::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $actors = User::whereNotIn('type_id', [1,2])->orderBy('full_name', 'ASC')->lists('full_name', 'id')->toArray();
+        $lawyers = User::where('type_id', [2])->orderBy('full_name', 'ASC')->lists('full_name', 'id')->toArray();
         $specialities = Speciality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $offices = Office::specialities($request->get('speciality'))->orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $office_stages = OfficeStages::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
@@ -86,7 +86,7 @@ class ProcessController extends Controller
         $process_audiences = ProcessAudiences::with('Office')->where('process_id', $id)->orderBy('date', 'DECS')->get();
         $origin_office = ProcessOffices::where([ ['process_id',$id], ['stage_id',1], ])->orderBy('id', 'DESC')->first();
         $result = Process::with('State', 'Stage', 'Action', 'Travel', 'Municipality', 'Notification')->findOrFail($id);
-        return view('app.execution.process.show', compact('result', 'parts', 'actors', 'process_actors', 'process_offices', 'process_audiences', 'specialities', 'query', 'offices', 'office_stages', 'origin_office'));
+        return view('app.execution.process.show', compact('result', 'parts', 'actors', 'lawyers', 'process_actors', 'process_offices', 'process_audiences', 'specialities', 'query', 'offices', 'office_stages', 'origin_office'));
     }
 
     /**
@@ -97,7 +97,14 @@ class ProcessController extends Controller
      */
     public function edit($id)
     {
-        //
+        $result = Process::findOrFail($id);
+        $states = State::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $stages = Stage::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $travels = Travel::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $municipalities = Municipality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $actions = Action::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $results = Action::orderBy('id', 'DECS')->paginate(5);
+        return view('app.execution.process.edit', compact('result', 'results', 'municipalities', 'actions', 'states', 'stages', 'travels'));
     }
 
     /**
@@ -109,7 +116,10 @@ class ProcessController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $result = Process::findOrFail($id);
+        $result->fill($request->all());
+        $result->save();
+        return Redirect::route('execution.process.show', $result->id);
     }
 
     /**

@@ -12,10 +12,6 @@
             {!! Form::label('stage_id', 'Etapa') !!}
             {!! Form::select('stage_id', ['' => 'Selecionar', 'Etapas' => $stages,], null, ['class' => 'form-control']) !!}
         </div>
-        <div class="form-group">
-            {!! Form::label('travel_id', 'Recorrido') !!}
-            {!! Form::select('travel_id', ['' => 'Selecionar', 'Recorridos' => $travels,], null, ['class' => 'form-control']) !!}
-        </div>
         <div class="form-group input-group">
             <span class="input-group-addon">$</span>
             {!! Form::text('quantity', null,['class' => 'form-control', 'placeholder' => 'Cuantia']) !!}
@@ -36,8 +32,8 @@
             {!! Form::text('email', null,['class' => 'form-control', 'placeholder' => 'Email']) !!}
         </div>
         <div class="form-group">
-            {!! Form::label('user_id', 'Abogado') !!}
-            {!! Form::select('user_id', ['' => 'Selecionar', 'Abogados' => $users,], null, ['class' => 'form-control']) !!}
+            {!! Form::label('travel_id', 'Recorrido') !!}
+            {!! Form::select('travel_id', ['' => 'Selecionar', 'Recorridos' => $travels,], null, ['class' => 'form-control']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('municipality_id', 'Municipio') !!}

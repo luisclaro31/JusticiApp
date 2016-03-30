@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Process extends Model
 {
     protected $fillable = [
-        'identification','objective','quantity','email','details','action_id','user_id','state_id','stage_id','travel_id','municipality_id',
+        'identification','objective','quantity','email','details','action_id','state_id','stage_id','travel_id','municipality_id',
     ];
 
     public function State()

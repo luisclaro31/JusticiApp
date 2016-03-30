@@ -53,7 +53,7 @@ class ProcessOfficesController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -87,6 +87,8 @@ class ProcessOfficesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = ProcessOffices::findOrFail($id);
+        $result->delete();
+        return Redirect::back();
     }
 }

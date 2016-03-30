@@ -11,6 +11,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-info fa-fw"></i> Informacion Proceso
+                        <div class="pull-right">
+                            <a class="btn btn-info btn-xs" href="{{ route('execution.process.edit', $result)  }}">Editar <i class="fa fa-pencil fa-lg"></i></a>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <div class="col-lg-12">
@@ -22,8 +25,6 @@
                                     <dd>{{ $result->state->description }}</dd>
                                     <dt>Etapa: </dt>
                                     <dd>{{ $result->stage->description }}</dd>
-                                    <dt>Recorrido: </dt>
-                                    <dd>{{ $result->travel->description }}</dd>
                                     <dt>Cuantia: </dt>
                                     <dd>@if($result->quantity != "")
                                             $ {{ number_format($result->quantity, 2, ',', '.') }}
@@ -38,8 +39,8 @@
                                     <dd>{{ $result->action->description }}</dd>
                                     <dt>Correo Electronico: </dt>
                                     <dd>{{ $result->email }}</dd>
-                                    <dt>Abogado: </dt>
-                                    <dd>{{ $result->user->full_name }}</dd>
+                                    <dt>Recorrido: </dt>
+                                    <dd>{{ $result->travel->description }}</dd>
                                     <dt>Municipio: </dt>
                                     <dd>{{ $result->municipality->description }} - {{ $result->municipality->department }}</dd>
                                     <dt>Detalles: </dt>
@@ -53,24 +54,63 @@
             <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                        <i class="fa fa-user-md fa-fw"></i> Abogados del proceso
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            @foreach($process_actors as $process_actor)
+                                @if($process_actor->user->type_id == 2)
+                                    {!! Form::open(['route' => ['execution.process_actors.destroy', $process_actor], 'method' => 'DELETE' ]) !!}
+                                    <button type="submit" onclick="return confirm('Seguro que desea Eliminar El Actor {{  $process_actor->user->full_name }} de la Parte {{ $process_actor->part->description }}')" class="list-group-item">
+                                        @if ($process_actor->part_id == 1 )
+                                            <i class="fa fa-user fa-fw"></i>
+                                        @endif
+                                        @if ($process_actor->part_id == 2 )
+                                            <i class="fa fa-user-secret fa-fw"></i>
+                                        @elseif($process_actor->part_id > 2 )
+                                            <i class="fa fa-question-circle fa-fw"></i>
+                                        @endif
+                                        {{ $process_actor->user->full_name }}
+                                        <span class="pull-right text-muted small"><em>{{ $process_actor->part->description }}</em>
+                                        </span>
+                                    </button>
+                                    {!! Form::close() !!}
+                                @endif
+                            @endforeach
+                        </div>
+                        <div class="input-group" align="center">
+                            <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#add_lawyers"><i class="fa fa-plus-circle fa-lg"></i> Añadir Abogado</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
                         <i class="fa fa-users fa-fw"></i> Partes del Proceso
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
                             @foreach($process_actors as $process_actor)
-                                <a href="#" class="list-group-item">
-                                    @if ($process_actor->part_id == 1 )
-                                        <i class="fa fa-user fa-fw"></i>
-                                    @endif
-                                    @if ($process_actor->part_id == 2 )
-                                        <i class="fa fa-user-secret fa-fw"></i>
-                                    @elseif($process_actor->part_id > 2 )
-                                        <i class="fa fa-question-circle fa-fw"></i>
-                                    @endif
-                                    {{ $process_actor->user->full_name }}
-                                    <span class="pull-right text-muted small"><em>{{ $process_actor->part->description }}</em>
-                                    </span>
-                                </a>
+                                @if($process_actor->user->type_id <> 2)
+                                    {!! Form::open(['route' => ['execution.process_actors.destroy', $process_actor], 'method' => 'DELETE' ]) !!}
+                                    <button type="submit" onclick="return confirm('Seguro que desea Eliminar El Actor {{  $process_actor->user->full_name }} de la Parte {{ $process_actor->part->description }}')" class="list-group-item">
+                                        @if ($process_actor->part_id == 1 )
+                                            <i class="fa fa-user fa-fw"></i>
+                                        @endif
+                                        @if ($process_actor->part_id == 2 )
+                                            <i class="fa fa-user-secret fa-fw"></i>
+                                        @elseif($process_actor->part_id > 2 )
+                                            <i class="fa fa-question-circle fa-fw"></i>
+                                        @endif
+                                        {{ $process_actor->user->full_name }}
+                                        <span class="pull-right text-muted small"><em>{{ $process_actor->part->description }}</em>
+                                        </span>
+                                    </button>
+                                    {!! Form::close() !!}
+                                @endif
                             @endforeach
                         </div>
                         <div class="input-group" align="center">
@@ -80,20 +120,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+
+            <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-building fa-fw"></i> Despachos del Proceso
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
-                        @foreach($process_offices as $process_office)
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-briefcase fa-fw"></i> {{ $process_office->office->description }}
-                                <span class="pull-right text-muted small"><em>{{ $process_office->stage->description }}</em></span>
-                            </a>
-                        @endforeach
-                    </div>
+                            @foreach($process_offices as $process_office)
+                                {!! Form::open(['route' => ['execution.process_offices.destroy', $process_office], 'method' => 'DELETE' ]) !!}
+                                    <button type="submit" onclick="return confirm('Seguro que desea Eliminar El Despacho {{  $process_office->office->description }} Con Vinculacion {{ $process_office->stage->description }}')" class="list-group-item">
+                                        <i class="fa fa-briefcase fa-fw"></i> {{ $process_office->office->description }}
+                                        <span class="pull-right text-muted small"><em>{{ $process_office->stage->description }}</em> <em>{{ $process_office->date }}</em></span>
+                                    </button>
+                                {!! Form::close() !!}
+                            @endforeach
+                        </div>
                         {!! Form::model($query, ['route' => ['execution.process.show', $result], 'method' => 'GET', 'role' => 'search']) !!}
                             <div class="form-group input-group">
                                 {!! Form::select('speciality', ['' => 'Selecionar', 'Especialidad' => $specialities], null, ['class' => 'form-control']) !!}
@@ -224,7 +267,7 @@
             <div class="col-lg-4">
                 <div class="chat-panel panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-comments fa-fw"></i>Audiencias
+                        <i class="fa fa-institution fa-fw"></i>Audiencias
                     </div>
                     <div class="panel-body">
                         <ul class="chat">
@@ -253,6 +296,37 @@
                 <!-- /.panel .chat-panel -->
             </div>
             <!-- /.col-lg-4 -->
+        </div>
+    </div>
+
+    <div class="modal fade" id="add_lawyers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                    <h4 class="modal-title" id="myModalLabel">Añadir Abogado</h4>
+                </div>
+                <div class="modal-body">
+                    {!! Form::open(['route' => 'execution.process_actors.store', 'method' => 'POST']) !!}
+                    <div class="form-group">
+                        {!! Form::label('process_id', 'Proceso #') !!}
+                        {!! Form::text('process_id', $result->id ,['class' => 'form-control', 'placeholder' => 'Proceso','readonly']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('part_id', 'Parte') !!}
+                        {!! Form::select('part_id', ['' => 'Selecionar', 'Partes' => $parts,], null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('user_id', 'Abogado') !!}
+                        {!! Form::select('user_id', ['' => 'Selecionar', 'Abogados' => $lawyers,], null, ['class' => 'form-control']) !!}
+                    </div>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle fa-lg"></i> Añadir Nuevo</button>
+                    {!! Form::close() !!}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -307,6 +381,10 @@
                     <div class="form-group">
                         {!! Form::label('stage_id', 'Etapa del Despacho') !!}
                         {!! Form::select('stage_id', ['' => 'Selecionar', 'Etapa' => $office_stages ], null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('date', 'Fecha Reparto') !!}
+                        {!! Form::date('date', null, ['class' => 'form-control']) !!}
                     </div>
                     <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle fa-lg"></i> Añadir Nuevo</button>
                     {!! Form::close() !!}
