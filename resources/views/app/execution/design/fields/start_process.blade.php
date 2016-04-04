@@ -5,6 +5,10 @@
             {!! Form::text('identification', null,['class' => 'form-control', 'placeholder' => 'Radicado']) !!}
         </div>
         <div class="form-group">
+            {!! Form::label('identification_two', 'Radicado de 2da Instancia') !!}
+            {!! Form::text('identification_two', null,['class' => 'form-control', 'placeholder' => 'Radicado de 2da Instancia']) !!}
+        </div>
+        <div class="form-group">
             {!! Form::label('state_id', 'Estado') !!}
             {!! Form::select('state_id', ['' => 'Selecionar', 'Estados' => $states,], null, ['class' => 'form-control']) !!}
         </div>

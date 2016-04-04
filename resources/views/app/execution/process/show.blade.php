@@ -21,6 +21,8 @@
                                 <dl class="dl-horizontal">
                                     <dt>Radicado: </dt>
                                     <dd>{{ $result->identification }}</dd>
+                                    <dt>Radicado de 2da Instancia: </dt>
+                                    <dd>{{ $result->identification_two }}</dd>
                                     <dt>Estado: </dt>
                                     <dd>{{ $result->state->description }}</dd>
                                     <dt>Etapa: </dt>
