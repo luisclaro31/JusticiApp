@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69f4367f-519c-4133-847d-a7ff40fb45be" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/Execution/ProcessController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/Execution/ProcessController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Process.php" afterPath="$PROJECT_DIR$/app/Process.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/execution/process/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/execution/process/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/action/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/action/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/action/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/action/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/location/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/location/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/location/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/location/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/notification/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/notification/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/notification/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/notification/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/office/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/office/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/office/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/office/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/speciality/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/speciality/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/speciality/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/speciality/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/stage/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/stage/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/stage/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/stage/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/state/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/state/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/state/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/state/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/travel/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/travel/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/travel/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/travel/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/user/actor/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/user/actor/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/user/actor/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/user/actor/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/user/type/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/user/type/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/user/type/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/user/type/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/theme/footer/script.blade.php" afterPath="$PROJECT_DIR$/resources/views/theme/footer/script.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/theme/head/style.blade.php" afterPath="$PROJECT_DIR$/resources/views/theme/head/style.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/Information/OfficeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/Information/OfficeController.php" />
     </list>
     <ignored path="abogado.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -93,6 +67,7 @@
         <option value="$PROJECT_DIR$/resources/views/app/user/type/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/app/user/type/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/App/User/ActorController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/App/Information/OfficeController.php" />
       </list>
     </option>
   </component>
@@ -238,10 +213,6 @@
               <option name="myItemId" value="App" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="User" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -266,6 +237,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Information" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -600,6 +575,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.54453784">
           <caret line="45" column="113" selection-start-line="45" selection-start-column="113" selection-end-line="45" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/App/Information/OfficeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9361345">
+          <caret line="72" column="54" selection-start-line="72" selection-start-column="54" selection-end-line="72" selection-end-column="54" />
           <folding />
         </state>
       </provider>
