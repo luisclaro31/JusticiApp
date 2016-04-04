@@ -8,6 +8,12 @@
 <!-- Timeline CSS -->
 <link href="{{ asset('theme/dist/css/timeline.css') }}" rel="stylesheet">
 
+<!-- DataTables CSS -->
+<link href="{{ asset('theme/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css') }}" rel="stylesheet">
+
+<!-- DataTables Responsive CSS -->
+<link href="{{ asset('theme/bower_components/datatables-responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
+
 <!-- Custom CSS -->
 <link href="{{ asset('theme/dist/css/sb-admin-2.css') }}" rel="stylesheet">
 
@@ -23,3 +29,5 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+

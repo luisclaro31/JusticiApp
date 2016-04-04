@@ -33,7 +33,8 @@ class ProcessController extends Controller
      */
     public function index()
     {
-        $results = Process::with('Action')->paginate();
+        $results = Process::with('Action', 'ProcessActors', 'ProcessActors.User')->paginate();
+
         return view('app.execution.process.index', compact('results'));
     }
 

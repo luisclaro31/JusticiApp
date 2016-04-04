@@ -40,11 +40,6 @@ class Process extends Model
         return $this->belongsTo('App\Notification');
     }
 
-    public function User()
-    {
-        return $this->belongsTo('App\User');
-    }
-
     public function ProcessActors()
     {
         return $this->hasMany('App\ProcessActors');

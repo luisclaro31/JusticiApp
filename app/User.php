@@ -29,10 +29,6 @@ class User extends Authenticatable
         return $this->belongsTo('App\Type');
     }
 
-    public function Process()
-    {
-        return $this->hasMany('App\Process');
-    }
 
     public function ProcessActors()
     {
