@@ -47,7 +47,7 @@ class ProcessMovementsController extends Controller
             $date = $request->date;
             $process_id = $request->process_id;
             $extension = $file->getClientOriginalExtension();
-            Storage::disk('local')->put('process_movementes'.'/'.$process_id.'/'.$date.'.'.$extension,  File::get($file));
+            Storage::disk('local')->put('process_movements'.'/'.$process_id.'/'.$date.'.'.$extension,  File::get($file));
         }
 
         $results = ProcessMovements::create($request->all());

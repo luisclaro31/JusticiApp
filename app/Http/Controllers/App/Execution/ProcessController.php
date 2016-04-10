@@ -11,6 +11,7 @@ use App\Part;
 use App\Process;
 use App\ProcessActors;
 use App\ProcessAudiences;
+use App\ProcessMovements;
 use App\ProcessOffices;
 use App\Speciality;
 use App\Stage;
@@ -87,9 +88,10 @@ class ProcessController extends Controller
         $process_actors = ProcessActors::with('Process', 'User', 'Part')->where('process_id', $id)->orderBy('part_id', 'ASC')->get();
         $process_offices = ProcessOffices::with('Office', 'Stage')->where('process_id', $id)->orderBy('stage_id', 'ASC')->get();
         $process_audiences = ProcessAudiences::with('Office')->where('process_id', $id)->orderBy('date', 'DECS')->get();
+        $process_movements = ProcessMovements::with('Notification', 'Office')->where('process_id', $id)->orderBy('date', 'DECS')->get();
         $origin_office = ProcessOffices::where([ ['process_id',$id], ['stage_id',1], ])->orderBy('id', 'DESC')->first();
         $result = Process::with('State', 'Stage', 'Action', 'Travel', 'Municipality')->findOrFail($id);
-        return view('app.execution.process.show', compact('result', 'parts', 'notifications', 'actors', 'lawyers', 'process_actors', 'process_offices', 'process_audiences', 'specialities', 'query', 'offices', 'office_stages', 'origin_office'));
+        return view('app.execution.process.show', compact('result', 'parts', 'notifications', 'actors', 'lawyers', 'process_actors', 'process_offices', 'process_audiences', 'specialities', 'query', 'offices', 'office_stages', 'origin_office', 'process_movements'));
     }
 
     /**
