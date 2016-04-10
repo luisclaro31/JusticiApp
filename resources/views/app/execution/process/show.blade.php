@@ -156,10 +156,13 @@
             <div class="col-lg-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
+                        <i class="fa fa-clock-o fa-fw"></i> Movimientos
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
+                        <div class="input-group" align="center">
+                            <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#add_movement"><i class="fa fa-plus-circle fa-lg"></i> Añadir Movimiento</a>
+                        </div>
                         <ul class="timeline">
                             <li>
                                 <div class="timeline-badge"><i class="fa fa-check"></i>
@@ -418,6 +421,53 @@
                     <div class="form-group">
                         {!! Form::label('time', 'Hora') !!}
                         {!! Form::time('time', null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('office_id', 'Despacho') !!}
+                        {!! Form::select('office_id', ['' => 'Selecionar', 'Oficina' => $offices ], null, ['class' => 'form-control']) !!}
+                    </div>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle fa-lg"></i> Añadir Nuevo</button>
+                    {!! Form::close() !!}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="add_movement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                    <h4 class="modal-title" id="myModalLabel">Añadir Movimiento</h4>
+                </div>
+                <div class="modal-body">
+                    {!! Form::model($origin_office, ['route' => 'execution.process_movements.store', 'method' => 'POST']) !!}
+                    <div class="form-group">
+                        {!! Form::label('process_id', 'Proceso #') !!}
+                        {!! Form::text('process_id', $result->id ,['class' => 'form-control', 'placeholder' => 'Proceso','readonly']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('description', 'Descripcion') !!}
+                        {!! Form::textarea('description', null,['class' => 'form-control', 'placeholder' => 'Descripcion']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('date', 'Fecha del auto') !!}
+                        {!! Form::date('date', null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('notification_date', 'Notificacion Fecha') !!}
+                        {!! Form::date('notification_date', null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('notification_id', 'Notificacion') !!}
+                        {!! Form::select('notification_id', ['' => 'Selecionar', 'Oficina' => $notifications ], null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('expiration_date', 'Expiracion Fecha') !!}
+                        {!! Form::date('expiration_date', null, ['class' => 'form-control']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('office_id', 'Despacho') !!}

@@ -37,7 +37,7 @@ class ProcessMovementsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('guardado');
     }
 
     /**

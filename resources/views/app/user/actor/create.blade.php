@@ -21,7 +21,7 @@
                                     <p class="alert alert-success">{{ Session::get('message') }}</p>
                                 @endif
 
-                                {!! Form::open(['method' => 'POST', 'route' => 'user.actor.store' ]) !!}
+                                {!! Form::open(['method' => 'POST', 'route' => 'user.actor.store', 'files' => 'true' ]) !!}
                                     @include('app.user.design.fields.actor')
                                     <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle fa-lg"></i> Añadir Nuevo</button>
                                 {!! Form::close() !!}

@@ -24,6 +24,7 @@ class CreateProcessMovementsTable extends Migration
             $table->foreign('office_id')->references('id')->on('offices')->onDelete('cascade');
             $table->integer('notification_id')->unsigned();
             $table->foreign('notification_id')->references('id')->on('notifications')->onDelete('cascade');
+            $table->string('file');
             $table->string('email');
             $table->timestamps();
         });

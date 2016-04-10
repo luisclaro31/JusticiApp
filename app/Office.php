@@ -20,6 +20,11 @@ class Office extends Model
         return $this->hasMany('App\ProcessAudiences');
     }
 
+    public function ProcessMovements()
+    {
+        return $this->hasMany('App\ProcessMovements');
+    }
+
     public function Speciality()
     {
         return $this->belongsTo('App\Speciality');

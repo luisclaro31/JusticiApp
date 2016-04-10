@@ -6,11 +6,14 @@ use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserEditRequest;
 use App\Type;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class ActorController extends Controller
 {
@@ -44,6 +47,13 @@ class ActorController extends Controller
      */
     public function store(UserCreateRequest $request)
     {
+        if( $request->hasFile('image')){
+            $file = $request->file('image');
+            $name = $request->identification;
+            $extension = $file->getClientOriginalExtension();
+            Storage::disk('local')->put('avatars/'.$name.'.'.$extension,  File::get($file));
+        }
+
         $results = User::create($request->all());
         Session::flash('message', $results->full_name . ' Añadido Con Exito');
         return Redirect::route('user.actor.create');
@@ -83,6 +93,13 @@ class ActorController extends Controller
      */
     public function update(UserEditRequest $request, $id)
     {
+        if( $request->hasFile('image')){
+            $file = $request->file('image');
+            $name = $request->identification;
+            $extension = $file->getClientOriginalExtension();
+            Storage::disk('local')->put('avatars/'.$name.'.'.$extension,  File::get($file));
+        }
+
         $result = User::findOrFail($id);
         $result->fill($request->all());
         $result->save();

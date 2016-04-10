@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App\Execution;
 
 use App\Action;
 use App\Municipality;
+use App\Notification;
 use App\Office;
 use App\OfficeStages;
 use App\Part;
@@ -77,6 +78,7 @@ class ProcessController extends Controller
     {
         $query = Requestss::all();
         $parts = Part::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $notifications = Notification::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $actors = User::whereNotIn('type_id', [1,2])->orderBy('full_name', 'ASC')->lists('full_name', 'id')->toArray();
         $lawyers = User::where('type_id', [2])->orderBy('full_name', 'ASC')->lists('full_name', 'id')->toArray();
         $specialities = Speciality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
@@ -86,8 +88,8 @@ class ProcessController extends Controller
         $process_offices = ProcessOffices::with('Office', 'Stage')->where('process_id', $id)->orderBy('stage_id', 'ASC')->get();
         $process_audiences = ProcessAudiences::with('Office')->where('process_id', $id)->orderBy('date', 'DECS')->get();
         $origin_office = ProcessOffices::where([ ['process_id',$id], ['stage_id',1], ])->orderBy('id', 'DESC')->first();
-        $result = Process::with('State', 'Stage', 'Action', 'Travel', 'Municipality', 'Notification')->findOrFail($id);
-        return view('app.execution.process.show', compact('result', 'parts', 'actors', 'lawyers', 'process_actors', 'process_offices', 'process_audiences', 'specialities', 'query', 'offices', 'office_stages', 'origin_office'));
+        $result = Process::with('State', 'Stage', 'Action', 'Travel', 'Municipality')->findOrFail($id);
+        return view('app.execution.process.show', compact('result', 'parts', 'notifications', 'actors', 'lawyers', 'process_actors', 'process_offices', 'process_audiences', 'specialities', 'query', 'offices', 'office_stages', 'origin_office'));
     }
 
     /**

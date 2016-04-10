@@ -2,7 +2,10 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -40,6 +43,14 @@ class User extends Authenticatable
         if ( ! empty ($value))
         {
             $this->attributes['password'] = bcrypt($value);
+        }
+    }
+
+    public function setImageAttribute($value)
+    {
+        if ( ! empty ($value))
+        {
+            $this->attributes['image'] = $this->attributes['identification'].'.'.$value->getClientOriginalExtension();
         }
     }
 }

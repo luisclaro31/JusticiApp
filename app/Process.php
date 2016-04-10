@@ -44,4 +44,9 @@ class Process extends Model
     {
         return $this->hasMany('App\ProcessActors');
     }
+
+    public function ProcessMovements()
+    {
+        return $this->hasMany('App\ProcessMovements');
+    }
 }

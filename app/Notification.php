@@ -10,8 +10,8 @@ class Notification extends Model
         'description',
     ];
 
-    public function Process()
+    public function ProcessMovements()
     {
-        return $this->hasMany('App\Process');
+        return $this->hasMany('App\ProcessMovements');
     }
 }
