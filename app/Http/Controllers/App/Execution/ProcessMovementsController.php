@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\App\Execution;
 
+use App\ProcessMovements;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class ProcessMovementsController extends Controller
 {
@@ -37,7 +42,17 @@ class ProcessMovementsController extends Controller
      */
     public function store(Request $request)
     {
-        dd('guardado');
+        if( $request->hasFile('file')){
+            $file = $request->file('file');
+            $date = $request->date;
+            $process_id = $request->process_id;
+            $extension = $file->getClientOriginalExtension();
+            Storage::disk('local')->put('process_movementes'.'/'.$process_id.'/'.$date.'.'.$extension,  File::get($file));
+        }
+
+        $results = ProcessMovements::create($request->all());
+        Session::flash('message', $results->full_name . ' Añadido Con Exito');
+        return Redirect::back();
     }
 
     /**

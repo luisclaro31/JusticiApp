@@ -24,4 +24,12 @@ class ProcessMovements extends Model
     {
         return $this->belongsTo('App\Notification');
     }
+
+    public function setFileAttribute($value)
+    {
+        if ( ! empty ($value))
+        {
+            $this->attributes['file'] = $this->attributes['date'].'.'.$value->getClientOriginalExtension();
+        }
+    }
 }

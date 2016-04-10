@@ -444,7 +444,7 @@
                     <h4 class="modal-title" id="myModalLabel">Añadir Movimiento</h4>
                 </div>
                 <div class="modal-body">
-                    {!! Form::model($origin_office, ['route' => 'execution.process_movements.store', 'method' => 'POST']) !!}
+                    {!! Form::model($origin_office, ['route' => 'execution.process_movements.store', 'method' => 'POST', 'files' => 'true' ]) !!}
                     <div class="form-group">
                         {!! Form::label('process_id', 'Proceso #') !!}
                         {!! Form::text('process_id', $result->id ,['class' => 'form-control', 'placeholder' => 'Proceso','readonly']) !!}
@@ -472,6 +472,14 @@
                     <div class="form-group">
                         {!! Form::label('office_id', 'Despacho') !!}
                         {!! Form::select('office_id', ['' => 'Selecionar', 'Oficina' => $offices ], null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('email', 'Correo Electronico para informar') !!}
+                        {!! Form::email('email', null,['class' => 'form-control', 'placeholder' => 'Correo Electronico para informar']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('file', 'Archivo') !!}
+                        {!! Form::file('file', ['class' => 'form-control']) !!}
                     </div>
                     <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle fa-lg"></i> Añadir Nuevo</button>
                     {!! Form::close() !!}
