@@ -62,3 +62,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/', 'HomeController@index');
 });
+
+
+Route::group(['prefix' => 'diario'], function () {
+    Route::resource('verdict', 'VerdictController');
+});
