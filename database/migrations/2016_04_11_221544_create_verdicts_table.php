@@ -22,6 +22,7 @@ class CreateVerdictsTable extends Migration
             $table->foreign('municipality_id')->references('id')->on('municipalities')->onDelete('cascade');
             $table->integer('office_id')->unsigned()->nullable();
             $table->foreign('office_id')->references('id')->on('offices')->onDelete('cascade');
+            $table->date('date');
             $table->timestamps();
         });
     }

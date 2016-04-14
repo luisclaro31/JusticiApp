@@ -33,4 +33,13 @@ class Verdict extends Model
 
     }
 
+    public function scopeDate($query, $date)
+    {
+        if ($date != "" )
+        {
+            $query->where('date', $date);
+        }
+
+    }
+
 }

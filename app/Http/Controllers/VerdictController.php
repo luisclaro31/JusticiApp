@@ -24,7 +24,7 @@ class VerdictController extends Controller
         $municipalities = Municipality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $specialities = Speciality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $offices = Office::specialities($request->get('speciality'))->orderBy('description', 'ASC')->lists('description', 'id')->toArray();
-        $results = Verdict::identification($request->get('identification'))->municipality($request->get('municipality'))->office($request->get('office'))->get();
+        $results = Verdict::identification($request->get('identification'))->municipality($request->get('municipality'))->office($request->get('office'))->date($request->get('date'))->get();
         return view('verdict.index', compact('results', 'municipalities', 'specialities', 'offices', 'query'));
     }
 

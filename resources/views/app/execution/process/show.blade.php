@@ -163,13 +163,17 @@
                         <div class="input-group" align="center">
                             <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#add_movement"><i class="fa fa-plus-circle fa-lg"></i> Añadir Movimiento</a>
                         </div>
-                        <ul class="timeline">
+                        <br>
+                        <div class="panel-group" id="accordion">
                             @foreach($process_movements as $process_movement)
-                                <li>
-                                    <div class="timeline-badge"><i class="fa fa-check"></i>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#{{ $process_movement->id }}">{{ $process_movement->notification->description }} | {{ \Carbon\Carbon::parse($process_movement->notification_date)->formatLocalized('%A %d %B %Y') }}</a>
+                                        </h4>
                                     </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
+                                    <div id="{{ $process_movement->id }}" class="panel-collapse collapse">
+                                        <div class="panel-body">
                                             <dl>
                                                 <dt>Fecha: </dt>
                                                 <dd><p><small class="text-muted"><i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($process_movement->date)->formatLocalized('%A %d %B %Y') }}</small></dd>
@@ -185,58 +189,14 @@
                                                 <dd><p><small class="text-muted"><i class="fa fa-building"></i> {{ $process_movement->office->description }}</small></dd>
                                                 <dt>Archivo: </dt>
                                                 <dd><p><a href="{{ asset('files/process_movements/'.$result->id.'/'.$process_movement->file) }}"  target="_blank" ><small class="text-muted"><i class="fa fa-file-pdf-o"></i> Ver Archivo</small></a></dd>
+                                                <dt>Desciccion: </dt>
+                                                <dd><p><i class="fa fa-comment-o"></i> {{ $process_movement->description }}.</dd>
                                             </dl>
                                         </div>
-                                        <div class="timeline-body">
-                                            <p><strong>Desciccion: </strong></p>
-                                            <p>{{ $process_movement->description }}.</p>
-                                        </div>
                                     </div>
-                                </li>
+                                </div>
                             @endforeach
-                            <li class="timeline-inverted">
-                                <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-                                </div>
-                                <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                    </div>
-                                    <div class="timeline-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="timeline-badge info"><i class="fa fa-save"></i>
-                                </div>
-                                <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                        <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                    </div>
-                                    <div class="timeline-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus modi quam ipsum alias at est molestiae excepturi delectus nesciunt, quibusdam debitis amet, beatae consequuntur impedit nulla qui! Laborum, atque.</p>
-                                        <hr>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                <i class="fa fa-gear"></i>  <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Action</a>
-                                                </li>
-                                                <li><a href="#">Another action</a>
-                                                </li>
-                                                <li><a href="#">Something else here</a>
-                                                </li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Separated link</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>

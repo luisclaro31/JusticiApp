@@ -23,6 +23,18 @@ class AdminTableSeeder extends Seeder
             'updated_at'    => '0000-00-0 00:00:00',
         ));
 
+        \DB::table('types')->insert(array(
+            'description'   => 'Persona Natural',
+            'created_at'    => '0000-00-0 00:00:00',
+            'updated_at'    => '0000-00-0 00:00:00',
+        ));
+
+        \DB::table('types')->insert(array(
+            'description'   => 'Persona Juridica',
+            'created_at'    => '0000-00-0 00:00:00',
+            'updated_at'    => '0000-00-0 00:00:00',
+        ));
+
         \DB::table('users')->insert(array(
             'identification'    => '0000000001',
             'professional_card' => '0000000001',
