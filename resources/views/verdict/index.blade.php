@@ -13,13 +13,13 @@
                             {!! Form::text('identification', null, ['class' => 'form-control', 'placeholder' => 'Radicado o Enunciado']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::select('municipality', ['' => 'Selecionar', 'Municipios' => $municipalities,], null, ['class' => 'form-control']) !!}
+                            {!! Form::select('municipality', ['' => 'Municipios', 'Selecionar' => $municipalities,], null, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::select('speciality', ['' => 'Selecionar', 'Especialidad' => $specialities,], null, ['class' => 'form-control']) !!}
+                            {!! Form::select('speciality', ['' => 'Especialidades', 'Selecionar' => $specialities,], null, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::select('office', ['' => 'Selecionar', 'Despacho' => $offices,], null, ['class' => 'form-control']) !!}
+                            {!! Form::select('office', ['' => 'Despachos', 'Selecionar' => $offices,], null, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::date('date', null, ['class' => 'form-control']) !!}

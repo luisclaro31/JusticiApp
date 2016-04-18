@@ -6,34 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="69f4367f-519c-4133-847d-a7ff40fb45be" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/Execution/ProcessController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/Execution/ProcessController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/Information/ActionController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/Information/ActionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/Information/LocationController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/Information/LocationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/Information/NotificationController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/Information/NotificationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/Information/SpecialityController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/Information/SpecialityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/Information/StageController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/Information/StageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/Information/StateController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/Information/StateController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/Information/TravelController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/Information/TravelController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/User/ActorController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/User/ActorController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/App/User/TypeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/App/User/TypeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/action/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/action/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/action/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/action/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/location/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/location/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/location/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/location/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/notification/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/notification/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/notification/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/notification/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/speciality/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/speciality/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/speciality/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/speciality/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/stage/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/stage/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/stage/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/stage/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/state/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/state/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/state/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/state/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/travel/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/travel/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/information/travel/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/information/travel/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/user/actor/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/user/actor/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/user/actor/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/user/actor/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/user/type/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/user/type/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app/user/type/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/app/user/type/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/verdict/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/verdict/index.blade.php" />
     </list>
     <ignored path="abogado.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +36,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2016_02_07_220600_create_offices_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_02_07_220721_create_processes_table.php" />
         <option value="$PROJECT_DIR$/resources/views/app/user/design/fields/actor.blade.php" />
         <option value="$PROJECT_DIR$/app/Office.php" />
         <option value="$PROJECT_DIR$/app/Process.php" />
@@ -74,12 +46,10 @@
         <option value="$PROJECT_DIR$/app/ProcessMovements.php" />
         <option value="$PROJECT_DIR$/config/filesystems.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/App/Execution/ProcessMovementsController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_04_11_221544_create_verdicts_table.php" />
         <option value="$PROJECT_DIR$/app/Verdict.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/VerdictController.php" />
-        <option value="$PROJECT_DIR$/resources/views/verdict/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/app/execution/process/show.blade.php" />
         <option value="$PROJECT_DIR$/database/seeds/AdminTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
@@ -113,6 +83,10 @@
         <option value="$PROJECT_DIR$/resources/views/app/information/travel/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/app/information/travel/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/App/Execution/ProcessController.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/app/execution/design/fields/start_process.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/verdict/index.blade.php" />
       </list>
     </option>
   </component>
@@ -167,6 +141,16 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="abogado" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="abogado" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="abogado" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -270,41 +254,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/seeds/InfoTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76094276">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="32" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_02_07_220724_create_process_distributions_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_03_26_174832_create_process_audiences_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57575756">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_03_26_175005_create_process_movements_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48821548">
-          <caret line="24" column="44" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/AdminTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4848485">
@@ -661,10 +610,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/app/execution/design/fields/start_process.blade.php">
+    <entry file="file://$PROJECT_DIR$/config/mail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="70" column="21" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6086956">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/app/execution/design/fields/start_process.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15151516">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/verdict/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6969697">
+          <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
           <folding />
         </state>
       </provider>

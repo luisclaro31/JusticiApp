@@ -67,3 +67,21 @@ Route::group(['middleware' => 'web'], function () {
 Route::group(['prefix' => 'diario'], function () {
     Route::resource('verdict', 'VerdictController');
 });
+
+Route::get('sendemail', function () {
+
+    $data = array(
+        'name' => "Nombre",
+    );
+
+    Mail::send('welcome', $data, function ($message) {
+
+        $message->from('hlclaroggggggg@gmail.com', 'Hector Luis Claro Gaibao');
+
+        $message->to('hlclarog@gmail.com')->subject('Asunto de El Email');
+
+    });
+
+    return "Correo Enviado";
+
+});
