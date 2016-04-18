@@ -28,7 +28,7 @@ class TravelController extends Controller
      */
     public function create()
     {
-        $results = Travel::orderBy('id', 'DECS')->paginate(5);
+        $results = Travel::orderBy('id', 'DECS')->get();
         return view('app.information.travel.create', compact('results'));
     }
 
@@ -65,7 +65,7 @@ class TravelController extends Controller
     public function edit($id)
     {
         $result = Travel::findOrFail($id);
-        $results = Travel::orderBy('id', 'DECS')->paginate(5);
+        $results = Travel::orderBy('id', 'DECS')->get();
         return view('app.information.travel.edit', compact('result', 'results'));
     }
 

@@ -30,7 +30,7 @@ class StageController extends Controller
      */
     public function create()
     {
-        $results = Stage::orderBy('id', 'DECS')->paginate(5);
+        $results = Stage::orderBy('id', 'DECS')->get();
         return view('app.information.stage.create', compact('results'));
     }
 
@@ -67,7 +67,7 @@ class StageController extends Controller
     public function edit($id)
     {
         $result = Stage::findOrFail($id);
-        $results = Stage::orderBy('id', 'DECS')->paginate(5);
+        $results = Stage::orderBy('id', 'DECS')->get();
         return view('app.information.stage.edit', compact('result', 'results'));
     }
 

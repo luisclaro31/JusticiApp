@@ -35,7 +35,7 @@ class ProcessController extends Controller
      */
     public function index()
     {
-        $results = Process::with('Action', 'ProcessActors', 'ProcessActors.User')->paginate();
+        $results = Process::with('Action', 'ProcessActors', 'ProcessActors.User')->get();
 
         return view('app.execution.process.index', compact('results'));
     }
@@ -52,8 +52,7 @@ class ProcessController extends Controller
         $travels = Travel::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $municipalities = Municipality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $actions = Action::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
-        $results = Action::orderBy('id', 'DECS')->paginate(5);
-        return view('app.execution.process.create', compact('results', 'municipalities', 'actions', 'states', 'stages', 'travels'));
+        return view('app.execution.process.create', compact('municipalities', 'actions', 'states', 'stages', 'travels'));
     }
 
     /**
@@ -108,8 +107,7 @@ class ProcessController extends Controller
         $travels = Travel::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $municipalities = Municipality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $actions = Action::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
-        $results = Action::orderBy('id', 'DECS')->paginate(5);
-        return view('app.execution.process.edit', compact('result', 'results', 'municipalities', 'actions', 'states', 'stages', 'travels'));
+        return view('app.execution.process.edit', compact('result', 'municipalities', 'actions', 'states', 'stages', 'travels'));
     }
 
     /**

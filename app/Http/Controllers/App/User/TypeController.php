@@ -30,7 +30,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        $results = Type::orderBy('id', 'DECS')->whereNotIn('id', [1, 2])->paginate(5);
+        $results = Type::orderBy('id', 'DECS')->whereNotIn('id', [1, 2])->get();
         return view('app.user.type.create', compact('results'));
     }
 
@@ -67,7 +67,7 @@ class TypeController extends Controller
     public function edit($id)
     {
         $result = Type::findOrFail($id);
-        $results = Type::orderBy('id', 'DECS')->paginate(5);
+        $results = Type::orderBy('id', 'DECS')->get();
         return view('app.user.type.edit', compact('result', 'results'));
     }
 

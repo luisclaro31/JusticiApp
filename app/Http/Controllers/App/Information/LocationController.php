@@ -29,7 +29,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        $results = Location::orderBy('id', 'DECS')->paginate(5);
+        $results = Location::orderBy('id', 'DECS')->get();
         return view('app.information.location.create', compact('results'));
     }
 
@@ -66,7 +66,7 @@ class LocationController extends Controller
     public function edit($id)
     {
         $result = Location::findOrFail($id);
-        $results = Location::orderBy('id', 'DECS')->paginate(5);
+        $results = Location::orderBy('id', 'DECS')->get();
         return view('app.information.location.edit', compact('result', 'results'));
     }
 

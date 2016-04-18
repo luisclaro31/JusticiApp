@@ -40,7 +40,6 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 @include('app.user.design.partials.description_table')
                             </table>
-                            <div align="right">{!! $results->render() !!}</div>
                         </div>
                     </div>
                 </div>

@@ -30,7 +30,7 @@ class StateController extends Controller
      */
     public function create()
     {
-        $results = State::orderBy('id', 'DECS')->paginate(5);
+        $results = State::orderBy('id', 'DECS')->get();
         return view('app.information.state.create', compact('results'));
     }
 
@@ -67,7 +67,7 @@ class StateController extends Controller
     public function edit($id)
     {
         $result = State::findOrFail($id);
-        $results = State::orderBy('id', 'DECS')->paginate(5);
+        $results = State::orderBy('id', 'DECS')->get();
         return view('app.information.state.edit', compact('result', 'results'));
     }
 

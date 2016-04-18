@@ -28,7 +28,7 @@ class NotificationController extends Controller
      */
     public function create()
     {
-        $results = Notification::orderBy('id', 'DECS')->paginate(5);
+        $results = Notification::orderBy('id', 'DECS')->get();
         return view('app.information.notification.create', compact('results'));
     }
 
@@ -65,7 +65,7 @@ class NotificationController extends Controller
     public function edit($id)
     {
         $result = Notification::findOrFail($id);
-        $results = Notification::orderBy('id', 'DECS')->paginate(5);
+        $results = Notification::orderBy('id', 'DECS')->get();
         return view('app.information.notification.edit', compact('result', 'results'));
     }
 

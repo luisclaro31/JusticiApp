@@ -74,7 +74,6 @@
                                 </tr>
                                 </tfoot>
                             </table>
-                            <div align="right">{!! $results->render() !!}</div>
                         </div>
                     </div>
                 </div>

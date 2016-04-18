@@ -31,7 +31,7 @@ class ActionController extends Controller
      */
     public function create()
     {
-        $results = Action::orderBy('id', 'DECS')->paginate(5);
+        $results = Action::orderBy('id', 'DECS')->get();
         return view('app.information.action.create', compact('results'));
     }
 
@@ -68,7 +68,7 @@ class ActionController extends Controller
     public function edit($id)
     {
         $result = Action::findOrFail($id);
-        $results = Action::orderBy('id', 'DECS')->paginate(5);
+        $results = Action::orderBy('id', 'DECS')->get();
         return view('app.information.action.edit', compact('result', 'results'));
     }
 

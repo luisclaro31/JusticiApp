@@ -28,7 +28,7 @@ class SpecialityController extends Controller
      */
     public function create()
     {
-        $results = Speciality::orderBy('id', 'DECS')->paginate(5);
+        $results = Speciality::orderBy('id', 'DECS')->get();
         return view('app.information.speciality.create', compact('results'));
     }
 
@@ -65,7 +65,7 @@ class SpecialityController extends Controller
     public function edit($id)
     {
         $result = Speciality::findOrFail($id);
-        $results = Speciality::orderBy('id', 'DECS')->paginate(5);
+        $results = Speciality::orderBy('id', 'DECS')->get();
         return view('app.information.speciality.edit', compact('result', 'results'));
     }
 
