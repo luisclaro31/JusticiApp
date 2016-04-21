@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Municipality;
+use App\Notification;
 use App\Office;
 use App\Speciality;
 use App\Verdict;
@@ -24,8 +25,9 @@ class VerdictController extends Controller
         $municipalities = Municipality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $specialities = Speciality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $offices = Office::specialities($request->get('speciality'))->orderBy('description', 'ASC')->lists('description', 'id')->toArray();
-        $results = Verdict::identification($request->get('identification'))->municipality($request->get('municipality'))->office($request->get('office'))->date($request->get('date'))->get();
-        return view('verdict.index', compact('results', 'municipalities', 'specialities', 'offices', 'query'));
+        $notification = Notification::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
+        $results = Verdict::with('notification')->identification($request->get('identification'))->municipality($request->get('municipality'))->office($request->get('office'))->notification($request->get('notification'))->date($request->get('date'))->get();
+        return view('verdict.index', compact('results', 'municipalities', 'specialities', 'offices', 'notification', 'query'));
     }
 
     /**

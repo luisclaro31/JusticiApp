@@ -14,4 +14,9 @@ class Notification extends Model
     {
         return $this->hasMany('App\ProcessMovements');
     }
+
+    public function Verdict()
+    {
+        return $this->hasMany('App\Verdict');
+    }
 }

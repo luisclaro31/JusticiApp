@@ -10,9 +10,6 @@
                     <div class="panel-body">
                         {!! Form::model($query, ['route' => 'diario.verdict.index', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search']) !!}
                         <div class="form-group">
-                            {!! Form::text('identification', null, ['class' => 'form-control', 'placeholder' => 'Radicado o Enunciado']) !!}
-                        </div>
-                        <div class="form-group">
                             {!! Form::select('municipality', ['' => 'Municipios', 'Selecionar' => $municipalities,], null, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
@@ -20,6 +17,9 @@
                         </div>
                         <div class="form-group">
                             {!! Form::select('office', ['' => 'Despachos', 'Selecionar' => $offices,], null, ['class' => 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::select('notification', ['' => 'Tipo Notificacion', 'Selecionar' => $notification,], null, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::date('date', null, ['class' => 'form-control']) !!}
@@ -33,6 +33,7 @@
                                 <th>Demandante</th>
                                 <th>Demandado</th>
                                 <th>Actuacion</th>
+                                <th>Tipo de Notificacion</th>
                                 <th>Fecha</th>
                             </tr>
                             @foreach($results as $result)
@@ -42,6 +43,7 @@
                                     <td>{{ $result->applicants }}</td>
                                     <td>{{ $result->defendants }}</td>
                                     <td>{{ $result->performance }}</td>
+                                    <td>{{ $result->notification->description }}</td>
                                     <td>{{ $result->date }}</td>
                                 </tr>
                             @endforeach

@@ -26,6 +26,7 @@ class VerdictsTableSeeder extends Seeder
                 'performance'           => $faker->text($maxNbChars = 50),
                 'municipality_id'       => 1,
                 'office_id'             => $faker->biasedNumberBetween($min = 1, $max = 100, $function = 'sqrt'),
+                'notification_id'       => $faker->biasedNumberBetween($min = 1, $max = 20, $function = 'sqrt'),
                 'date'                  => $faker->date($format = 'Y-m-d', $max = 'now'),
             ));
         }
