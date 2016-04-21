@@ -14,4 +14,9 @@ class ProcessAudiences extends Model
     {
         return $this->belongsTo('App\Office');
     }
+
+    public function Process()
+    {
+        return $this->belongsTo('App\Process');
+    }
 }

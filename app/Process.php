@@ -49,4 +49,9 @@ class Process extends Model
     {
         return $this->hasMany('App\ProcessMovements');
     }
+
+    public function ProcessAudiences()
+    {
+        return $this->hasMany('App\ProcessAudiences');
+    }
 }

@@ -216,7 +216,7 @@
                                             <strong class="primary-font">{{ $process_audience->office->description }}</strong>
                                         </div>
                                         <p><i class="fa fa-calendar fa-fw"></i> {{ \Carbon\Carbon::parse($process_audience->date)->formatLocalized('%A %d %B %Y') }}</p>
-                                        <p><i class="fa fa-clock-o fa-fw"></i> {{ \Carbon\Carbon::parse($process_audience->time)->format('h:i:s A')}}</p>
+                                        <p><i class="fa fa-clock-o fa-fw"></i> {{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}}</p>
                                     </div>
                                 </li>
                             @endforeach

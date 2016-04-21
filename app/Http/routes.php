@@ -11,8 +11,6 @@
 |
 */
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -52,17 +50,15 @@ Route::group(['prefix' => 'execution', 'middleware' => ['web'], 'namespace' => '
         Route::resource('process_movements','ProcessMovementsController');
     });
 
-
-Route::group(['middleware' => ['web']], function () {
-    //
-});
+Route::group(['middleware' => ['web'], 'namespace' => 'App\Home' ],
+    function () {
+        Route::resource('/','HomeController');
+    });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/home', 'HomeController@index');
-    Route::get('/', 'HomeController@index');
 });
-
 
 Route::group(['prefix' => 'diario'], function () {
     Route::resource('verdict', 'VerdictController');
@@ -85,3 +81,7 @@ Route::get('sendemail', function () {
     return "Correo Enviado";
 
 });
+
+//Route::group(['middleware' => ['web']], function () {
+    //
+//});
