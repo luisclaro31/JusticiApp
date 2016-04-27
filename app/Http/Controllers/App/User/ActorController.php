@@ -34,8 +34,8 @@ class ActorController extends Controller
      */
     public function create()
     {
-        $types = Type::orderBy('description', 'ASC')->whereNotIn('id', [1])->lists('description', 'id')->toArray();
-        $results = User::with('Type')->whereNotIn('id', [1])->orderBy('id', 'DECS')->get();
+        $types = Type::orderBy('description', 'ASC')->whereNotIn('id', [1, 2, 3])->lists('description', 'id')->toArray();
+        $results = User::with('Type')->whereNotIn('id', [1, 2, 3])->orderBy('id', 'DECS')->get();
         return view('app.user.actor.create', compact('results', 'types'));
     }
 
@@ -78,9 +78,9 @@ class ActorController extends Controller
      */
     public function edit($id)
     {
-        $types = Type::orderBy('description', 'ASC')->whereNotIn('id', [1])->lists('description', 'id')->toArray();
+        $types = Type::orderBy('description', 'ASC')->whereNotIn('id', [1, 2, 3])->lists('description', 'id')->toArray();
         $result = User::findOrFail($id);
-        $results = User::with('Type')->whereNotIn('id', [1])->orderBy('id', 'DECS')->get();
+        $results = User::with('Type')->whereNotIn('id', [1, 2, 3])->orderBy('id', 'DECS')->get();
         return view('app.user.actor.edit', compact('result', 'types', 'results'));
     }
 
