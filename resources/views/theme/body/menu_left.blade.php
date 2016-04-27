@@ -66,13 +66,15 @@
             </ul>
         </li>
         <li>
-            <a href="{{ url('/diario/verdict') }}" target="_blank"><i class="fa fa-flag"></i> Diario Judicial</a>
+            <a href="http://app.softwarehh.com/diario/verdict" target="_blank"><i class="fa fa-flag"></i> Diario Judicial</a>
         </li>
+        <!--
         <li>
             <a href="{{ url('/') }}"><i class="fa fa-info"></i> Informacion de la app</a>
         </li>
         <li>
             <a href="{{ url('/') }}"><i class="fa fa-life-ring"></i> Soporte de la app</a>
         </li>
+        -->
     </ul>
 </div>
