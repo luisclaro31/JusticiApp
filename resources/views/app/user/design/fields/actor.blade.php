@@ -38,7 +38,7 @@
             {!! Form::label('details', 'Detalles') !!}
             {!! Form::textarea('details', null,['class' => 'form-control', 'placeholder' => 'Detalles']) !!}
         </div>
-        <!--
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="well">
@@ -59,6 +59,5 @@
                 </div>
             </div>
         </div>
-        -->
     </div>
 </div>

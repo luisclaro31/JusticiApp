@@ -79,8 +79,8 @@ class ProcessController extends Controller
         $query = Requestss::all();
         $parts = Part::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $notifications = Notification::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
-        $actors = User::whereNotIn('type_id', [1,2])->orderBy('full_name', 'ASC')->lists('full_name', 'id')->toArray();
-        $lawyers = User::where('type_id', [2])->orderBy('full_name', 'ASC')->lists('full_name', 'id')->toArray();
+        $actors = User::whereNotIn('type_id', [1,2,3,4])->orderBy('full_name', 'ASC')->lists('full_name', 'id')->toArray();
+        $lawyers = User::where('type_id', [4])->orderBy('full_name', 'ASC')->lists('full_name', 'id')->toArray();
         $specialities = Speciality::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $offices = Office::specialities($request->get('speciality'))->orderBy('description', 'ASC')->lists('description', 'id')->toArray();
         $office_stages = OfficeStages::orderBy('description', 'ASC')->lists('description', 'id')->toArray();
