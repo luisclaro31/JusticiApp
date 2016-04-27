@@ -21,7 +21,7 @@
                                     <p class="alert alert-success">{{ Session::get('message') }}</p>
                                 @endif
 
-                                {!! Form::model($result,  ['route' => ['user.actor.update', $result], 'method' => 'PUT', 'files' => 'true' ]) !!}
+                                {!! Form::model($result,  ['route' => ['user.actor.update', $result], 'method' => 'PUT', 'files' => 'true', 'novalidate' ]) !!}
                                     @include('app.user.design.fields.actor')
                                     <button type="submit" onclick="return confirm('Se actualizara a {{  $result->full_name }}')" class="btn btn-warning"><i class="fa fa-pencil fa-lg"></i> Actualizar</button>
                                 {!! Form::close() !!}
