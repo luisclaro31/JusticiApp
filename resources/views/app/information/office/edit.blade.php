@@ -47,10 +47,10 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Descriscion</th>
+                                    <th>Descripción</th>
                                     <th>Especialidad</th>
                                     <th>localizacion</th>
-                                    <th>Accions <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
+                                    <th>Acciones <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -70,7 +70,7 @@
                                     <th>Descriscion</th>
                                     <th>Especialidad</th>
                                     <th>localizacion</th>
-                                    <th>Accions <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
+                                    <th>Acciones <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
                                 </tr>
                                 </tfoot>
                             </table>

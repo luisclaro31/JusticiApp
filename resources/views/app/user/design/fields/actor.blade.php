@@ -9,8 +9,8 @@
             {!! Form::text('professional_card', null,['class' => 'form-control', 'placeholder' => 'Numero Tarjeta Profesional']) !!}
         </div>
         <div class="form-group">
-            {!! Form::label('full_name', 'Nombres y Apellios o  Razon Social') !!}
-            {!! Form::text('full_name', null,['class' => 'form-control', 'placeholder' => 'Nombres y Apellios o  Razon Social']) !!}
+            {!! Form::label('full_name', 'Nombres y Apellidos o  Razon Social') !!}
+            {!! Form::text('full_name', null,['class' => 'form-control', 'placeholder' => 'Nombres y Apellidos o  Razon Social']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('phone', 'Telefono o  Celular') !!}

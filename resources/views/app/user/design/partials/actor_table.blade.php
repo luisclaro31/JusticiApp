@@ -1,10 +1,10 @@
 <thead>
 <tr>
     <th>Identificacion</th>
-    <th>Nombres y Aprellidos</th>
+    <th>Nombres y Apellidos</th>
     <th>Email</th>
     <th>Tipo</th>
-    <th>Accions <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
+    <th>Acciones <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
 </tr>
 </thead>
 <tbody>
@@ -21,9 +21,9 @@
 <tfoot>
 <tr>
     <th>Identificacion</th>
-    <th>Nombres y Aprellidos</th>
+    <th>Nombres y Apellidos</th>
     <th>Email</th>
     <th>Tipo</th>
-    <th>Accions <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
+    <th>Acciones <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
 </tr>
 </tfoot>

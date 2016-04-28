@@ -26,7 +26,7 @@ class FillersTableSeeder extends Seeder
                 'birth_date'            => $faker->dateTimeBetween('-30 years','-15 years')->format('Y-m-d'),
                 'address'               => $faker->streetAddress,
                 'details'               => $faker->text($maxNbChars = 200),
-                'type_id'               => $faker->randomElement([2,3,4]),
+                'type_id'               => $faker->randomElement([2,3,4,5]),
             ));
         }
 

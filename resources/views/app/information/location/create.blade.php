@@ -41,10 +41,10 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Descriscion</th>
+                                    <th>Descripción</th>
                                     <th>Fecha Creacion</th>
                                     <th>Tiempo Creacion</th>
-                                    <th>Accions <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
+                                    <th>Acciones <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -61,10 +61,10 @@
                                 <tfoot>
                                 <tr>
                                     <th>#</th>
-                                    <th>Descriscion</th>
+                                    <th>Descripción</th>
                                     <th>Fecha Creacion</th>
                                     <th>Tiempo Creacion</th>
-                                    <th>Accions <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
+                                    <th>Acciones <i class="fa fa-refresh fa-spin fa-lg"> </i></th>
                                 </tr>
                                 </tfoot>
                             </table>
