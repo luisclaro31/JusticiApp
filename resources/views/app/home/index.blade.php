@@ -168,6 +168,7 @@
                                                 <th>Radicado</th>
                                                 <th>Fecha de Audiencias</th>
                                                 <th>Hora de la Audiencia</th>
+                                                <th>Despacho </th>
                                                 <th>Partes</th>
                                                 <th>Abogados</th>
                                             </tr>
@@ -180,6 +181,7 @@
                                                         <td>{{ $process_audience->process->identification }}</td>
                                                         <td>{{ $process_audience->date }}</td>
                                                         <td>{{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}}</td>
+                                                        <td>{{ $process_audience->office->description }}</td>
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
@@ -219,6 +221,7 @@
                                                         <td>{{ $process_audience->process->identification }}</td>
                                                         <td>{{ $process_audience->date }}</td>
                                                         <td>{{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}}</td>
+                                                        <td>{{ $process_audience->office->description }}</td>
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
@@ -258,6 +261,7 @@
                                                         <td>{{ $process_audience->process->identification }}</td>
                                                         <td>{{ $process_audience->date }}</td>
                                                         <td>{{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}}</td>
+                                                        <td>{{ $process_audience->office->description }}</td>
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)

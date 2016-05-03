@@ -1,23 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\App\Home;
+namespace App\Http\Controllers\App\Lawyer;
 
-use App\ProcessAudiences;
-use App\ProcessMovements;
-use Carbon\Carbon;
+use App\Process;
+use App\User;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
-class HomeController extends Controller
+class ProcessController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,14 +20,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $now = Carbon::now();
-        $now = $now->toDateString();
+        $results = User::with('ProcessActors', 'ProcessActors.Process')->where('id', Auth::user()->id)->get();
 
-        $process_movements = ProcessMovements::with('Process', 'Notification', 'Process.ProcessActors.User')->where('expiration_date', '>=' , $now)->orderBy('expiration_date', 'ASC')->paginate();
-        $process_audiences = ProcessAudiences::with('Process', 'office', 'Process.ProcessActors.User')->where('date', '>=' , $now)->orderBy('date', 'ASC')->paginate();
+        /**$results = Process::with('Action', 'ProcessActors', 'ProcessActors.User')->whereExists(function ($query) {
+            $query->select(DB::raw(1))
+                ->from('users')
+                ->whereRaw('users.user_id = users.id');
+        })->get();*/
 
-        return view('app.home.index', compact('process_movements', 'process_audiences'));
+        dd($results);
 
+        return view('app.execution.process.index', compact('results'));
     }
 
     /**

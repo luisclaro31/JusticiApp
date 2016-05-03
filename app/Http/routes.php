@@ -22,7 +22,7 @@
 |
 */
 
-Route::group(['prefix' => 'user', 'middleware' => ['web'], 'namespace' => 'App\User' ],
+Route::group(['prefix' => 'user', 'middleware' => ['web',  'is_admin'], 'namespace' => 'App\User' ],
     function() {
         Route::resource('type','TypeController');
         Route::resource('actor','ActorController');
@@ -39,6 +39,11 @@ Route::group(['prefix' => 'info', 'middleware' => ['web'], 'namespace' => 'App\I
         Route::resource('location','LocationController');
         Route::resource('speciality','SpecialityController');
         Route::resource('office','OfficeController');
+    });
+
+Route::group(['prefix' => 'lawyer', 'middleware' => ['web'], 'namespace' => 'App\Lawyer' ],
+    function() {
+        Route::resource('process','ProcessController');
     });
 
 Route::group(['prefix' => 'execution', 'middleware' => ['web'], 'namespace' => 'App\Execution' ],

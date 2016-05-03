@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\App\Information;
 
-
 use App\Action;
 use App\Http\Requests\ActionCreateRequest;
 use App\Http\Requests\ActionEditRequest;

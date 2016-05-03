@@ -53,4 +53,9 @@ class User extends Authenticatable
             $this->attributes['image'] = $this->attributes['identification'].'.'.$value->getClientOriginalExtension();
         }
     }
+
+    public function is($type_id)
+    {
+        return $this->type_id === $type_id;
+    }
 }
