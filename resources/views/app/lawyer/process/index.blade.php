@@ -30,19 +30,19 @@
                                     <tbody>
                                         @foreach($results as $result)
                                             <tr>
-                                                <td>{{ $result->id }}</td>
-                                                <td>{{ $result->identification }}</td>
+                                                <td>{{ $result->Process->id }}</td>
+                                                <td>{{ $result->Process->identification }}</td>
                                                 <td>
                                                     <ul><strong>Demandantes</strong>
-                                                        @foreach($result->processactors as $ProcessActors)
-                                                            @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
+                                                        @foreach($result->Process->processactors as $ProcessActors)
+                                                            @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
                                                                 <li>{{ $ProcessActors->user->full_name }}</li>
                                                             @endif
                                                         @endforeach
                                                     </ul>
                                                     <ul><strong>Demandados</strong>
-                                                        @foreach($result->processactors as $ProcessActors)
-                                                            @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
+                                                        @foreach($result->Process->processactors as $ProcessActors)
+                                                            @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
                                                                 <li>{{ $ProcessActors->user->full_name }}</li>
                                                             @endif
                                                         @endforeach
@@ -50,23 +50,23 @@
                                                 </td>
                                                 <td>
                                                     <ul><strong>Demandantes</strong>
-                                                        @foreach($result->processactors as $ProcessActors)
-                                                            @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
+                                                        @foreach($result->Process->processactors as $ProcessActors)
+                                                            @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
                                                                 <li>{{ $ProcessActors->user->full_name }}</li>
                                                             @endif
                                                         @endforeach
                                                     </ul>
                                                     <ul><strong>Demandados</strong>
-                                                        @foreach($result->processactors as $ProcessActors)
-                                                            @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
+                                                        @foreach($result->Process->processactors as $ProcessActors)
+                                                            @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
                                                                 <li>{{ $ProcessActors->user->full_name }}</li>
                                                             @endif
                                                         @endforeach
                                                     </ul>
                                                 </td>
-                                                <td>{{ $result->action->description }}</td>
-                                                <td>{{ $result->details }}</td>
-                                                <td><a class="btn btn-info btn-sm" href="{{ route('execution.process.show', $result)  }}">Editar <i class="fa fa-pencil fa-lg"></i></a></td>
+                                                <td>{{ $result->Process->action->description }}</td>
+                                                <td>{{ $result->Process->details }}</td>
+                                                <td><a class="btn btn-info btn-sm" href="{{ route('execution.process.show', $result->Process)  }}">Ver <i class="fa fa-pencil fa-lg"></i></a></td>
                                             </tr>
                                         @endforeach
                                     </tbody>

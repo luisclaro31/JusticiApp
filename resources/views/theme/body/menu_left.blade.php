@@ -54,24 +54,40 @@
                 </li>
             </ul>
         </li>
-        <li>
-            <a href="#"><i class="fa fa-tasks fa-fw"></i> Procesos<span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-                <li>
-                    <a href="{{ url('/execution/process/create') }}">Crear Proceso</a>
-                </li>
-                <li>
-                    <a href="{{ url('/execution/process') }}">Lista De Procesos</a>
-                </li>
-            </ul>
-        </li>
+        @if(Auth::user()->type_id <= 3)
+            <li>
+                <a href="#"><i class="fa fa-tasks fa-fw"></i> Procesos<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ url('/execution/process') }}">Lista De Procesos</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/execution/process/create') }}">Crear Proceso</a>
+                    </li>
+                </ul>
+            </li>
+        @endif
+        @if(Auth::user()->type_id == 4)
+            <li>
+                <a href="#"><i class="fa fa-tasks fa-fw"></i> Mis Procesos<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ url('/lawyer/process') }}">Lista</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/execution/process/create') }}">Crear Proceso</a>
+                    </li>
+                </ul>
+            </li>
+        @endif
         <li>
             <a href="http://app.softwarehh.com/diario/verdict" target="_blank"><i class="fa fa-flag"></i> Diario Judicial</a>
         </li>
-        <!--
+
         <li>
-            <a href="{{ url('/') }}"><i class="fa fa-info"></i> Informacion de la app</a>
+            <a href="{{ url('/home') }}"><i class="fa fa-info"></i> Informacion de la App</a>
         </li>
+        <!--
         <li>
             <a href="{{ url('/') }}"><i class="fa fa-life-ring"></i> Soporte de la app</a>
         </li>

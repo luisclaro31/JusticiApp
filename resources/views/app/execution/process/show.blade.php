@@ -61,7 +61,7 @@
                     <div class="panel-body">
                         <div class="list-group">
                             @foreach($process_actors as $process_actor)
-                                @if($process_actor->user->type_id == 2)
+                                @if($process_actor->user->type_id == 4)
                                     {!! Form::open(['route' => ['execution.process_actors.destroy', $process_actor], 'method' => 'DELETE' ]) !!}
                                     <button type="submit" onclick="return confirm('Seguro que desea Eliminar El Actor {{  $process_actor->user->full_name }} de la Parte {{ $process_actor->part->description }}')" class="list-group-item">
                                         @if ($process_actor->part_id == 1 )
@@ -96,7 +96,7 @@
                     <div class="panel-body">
                         <div class="list-group">
                             @foreach($process_actors as $process_actor)
-                                @if($process_actor->user->type_id <> 2)
+                                @if($process_actor->user->type_id >= 5)
                                     {!! Form::open(['route' => ['execution.process_actors.destroy', $process_actor], 'method' => 'DELETE' ]) !!}
                                     <button type="submit" onclick="return confirm('Seguro que desea Eliminar El Actor {{  $process_actor->user->full_name }} de la Parte {{ $process_actor->part->description }}')" class="list-group-item">
                                         @if ($process_actor->part_id == 1 )

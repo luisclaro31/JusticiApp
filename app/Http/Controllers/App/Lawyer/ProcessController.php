@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\App\Lawyer;
 
 use App\Process;
+use App\ProcessActors;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class ProcessController extends Controller
      */
     public function index()
     {
-        $results = User::with('ProcessActors', 'ProcessActors.Process')->where('id', Auth::user()->id)->get();
+        $results = ProcessActors::with('User', 'Process', 'Process.ProcessActors')->where('user_id', Auth::user()->id)->paginate();
 
         /**$results = Process::with('Action', 'ProcessActors', 'ProcessActors.User')->whereExists(function ($query) {
             $query->select(DB::raw(1))
@@ -28,9 +29,8 @@ class ProcessController extends Controller
                 ->whereRaw('users.user_id = users.id');
         })->get();*/
 
-        dd($results);
 
-        return view('app.execution.process.index', compact('results'));
+        return view('app.lawyer.process.index', compact('results'));
     }
 
     /**
