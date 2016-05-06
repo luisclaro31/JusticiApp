@@ -22,7 +22,7 @@
 |
 */
 
-Route::group(['prefix' => 'user', 'middleware' => ['web',  'is_admin'], 'namespace' => 'App\User' ],
+Route::group(['prefix' => 'user', 'middleware' => ['web'], 'namespace' => 'App\User' ],
     function() {
         Route::resource('type','TypeController');
         Route::resource('actor','ActorController');
