@@ -11,9 +11,16 @@
             </div>
             <!-- /input-group -->
         </li>
-        <li>
-            <a href="{{ url('/') }}"><i class="fa fa-home fa-fw"></i> Inicio</a>
-        </li>
+        @if(Auth::user()->type_id <= 3)
+            <li>
+                <a href="{{ url('/home') }}"><i class="fa fa-home fa-fw"></i> Movimientos y Audiencias</a>
+            </li>
+        @endif
+        @if(Auth::user()->type_id == 4)
+            <li>
+                <a href="{{ url('/lawyer/home') }}"><i class="fa fa-home fa-fw"></i> Movimientos y Audiencias</a>
+            </li>
+        @endif
         <li>
             <a href="#"><i class="fa fa-cog fa-spin"></i> Configuracion de Datos<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
@@ -83,9 +90,8 @@
         <li>
             <a href="http://app.softwarehh.com/diario/verdict" target="_blank"><i class="fa fa-flag"></i> Diario Judicial</a>
         </li>
-
         <li>
-            <a href="{{ url('/home') }}"><i class="fa fa-info"></i> Informacion de la App</a>
+            <a href="{{ url('/') }}"><i class="fa fa-info"></i> Informacion de la App</a>
         </li>
         <!--
         <li>

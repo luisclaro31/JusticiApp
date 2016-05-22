@@ -44,6 +44,7 @@ Route::group(['prefix' => 'info', 'middleware' => ['web'], 'namespace' => 'App\I
 Route::group(['prefix' => 'lawyer', 'middleware' => ['web'], 'namespace' => 'App\Lawyer' ],
     function() {
         Route::resource('process','ProcessController');
+        Route::resource('home','HomeController');
     });
 
 Route::group(['prefix' => 'execution', 'middleware' => ['web'], 'namespace' => 'App\Execution' ],
@@ -57,12 +58,12 @@ Route::group(['prefix' => 'execution', 'middleware' => ['web'], 'namespace' => '
 
 Route::group(['middleware' => ['web'], 'namespace' => 'App\Home' ],
     function () {
-        Route::resource('/','HomeController');
+        Route::resource('/home','HomeController');
     });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-    Route::get('/home', 'HomeController@index');
+    Route::get('/', 'HomeController@index');
 });
 
 Route::group(['prefix' => 'diario'], function () {

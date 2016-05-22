@@ -26,7 +26,7 @@ class FillersTableSeeder extends Seeder
                 'birth_date'            => $faker->dateTimeBetween('-30 years','-15 years')->format('Y-m-d'),
                 'address'               => $faker->streetAddress,
                 'details'               => $faker->text($maxNbChars = 200),
-                'type_id'               => $faker->randomElement([5]),
+                'type_id'               => $faker->randomElement([4,5]),
             ));
         }
 
@@ -101,7 +101,7 @@ class FillersTableSeeder extends Seeder
 
             ));
 
-            for($j = 1; $j < 10; $j ++)
+            for($j = 2; $j < 10; $j ++)
             {
                 \DB::table('process_actors')->insert(array(
                     'process_id'            => $id,

@@ -28,122 +28,159 @@
                                             <tbody>
                                             @foreach($process_movements as $process_movement)
                                                 @if( $process_movement->expiration_date <= \Carbon\Carbon::now()->addDay(1)->toDateString() )
-                                                    <tr class="danger">
-                                                        <td>{{ $process_movement->id }}</td>
-                                                        <td>{{ $process_movement->process->identification }}</td>
-                                                        <td>{{ $process_movement->expiration_date }}</td>
-                                                        <td>{{ $process_movement->notification->description }}</td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
+                                                    <!--{{ $validator = 0 }}-->
+                                                    @foreach($process_movement->process->processactors as $ActorsLawyers)
+                                                        @if($validator == 0)
+                                                            @if($ActorsLawyers->user_id == Auth::user()->id)
+                                                                <!--{{ $validator = 1 }}-->
+                                                            @else
+                                                                <!--{{ $validator = 0 }}-->
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+
+                                                    @if($validator == 1)
+                                                        <tr class="danger">
+                                                            <td>{{ $process_movement->id }}</td>
+                                                            <td>{{ $process_movement->process->identification }}</td>
+                                                            <td>{{ $process_movement->expiration_date }}</td>
+                                                            <td>{{ $process_movement->notification->description }}</td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 @elseif(  $process_movement->expiration_date <= \Carbon\Carbon::now()->addDay(3)->toDateString() )
-                                                    <tr class="warning">
-                                                        <td>{{ $process_movement->id }}</td>
-                                                        <td>{{ $process_movement->process->identification }}</td>
-                                                        <td>{{ $process_movement->expiration_date }}</td>
-                                                        <td>{{ $process_movement->notification->description }}</td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
+                                                    <!--{{ $validator = 0 }}-->
+                                                    @foreach($process_movement->process->processactors as $ActorsLawyers)
+                                                        @if($validator == 0)
+                                                            @if($ActorsLawyers->user_id == Auth::user()->id)
+                                                                <!--{{ $validator = 1 }}-->
+                                                            @else
+                                                                <!--{{ $validator = 0 }}-->
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                    @if($validator == 1)
+                                                        <tr class="warning">
+                                                            <td>{{ $process_movement->id }}</td>
+                                                            <td>{{ $process_movement->process->identification }}</td>
+                                                            <td>{{ $process_movement->expiration_date }}</td>
+                                                            <td>{{ $process_movement->notification->description }}</td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 @elseif(   $process_movement->expiration_date >= \Carbon\Carbon::now()->addDay(4)->toDateString() )
-                                                    <tr class="success">
-                                                        <td>{{ $process_movement->id }}</td>
-                                                        <td>{{ $process_movement->process->identification }}</td>
-                                                        <td>{{ $process_movement->expiration_date }}</td>
-                                                        <td>{{ $process_movement->notification->description }}</td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
+                                                    <!--{{ $validator = 0 }}-->
+                                                    @foreach($process_movement->process->processactors as $ActorsLawyers)
+                                                        @if($validator == 0)
+                                                            @if($ActorsLawyers->user_id == Auth::user()->id)
+                                                                <!--{{ $validator = 1 }}-->
+                                                            @else
+                                                                <!--{{ $validator = 0 }}-->
+                                                        @endif
+                                                    @endif
+                                                    @endforeach
+                                                    @if($validator == 1)
+                                                        <tr class="success">
+                                                            <td>{{ $process_movement->id }}</td>
+                                                            <td>{{ $process_movement->process->identification }}</td>
+                                                            <td>{{ $process_movement->expiration_date }}</td>
+                                                            <td>{{ $process_movement->notification->description }}</td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_movement->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                             </tbody>
@@ -176,125 +213,161 @@
                                             <tbody>
                                             @foreach($process_audiences as $process_audience)
                                                 @if($process_audience->date <= \Carbon\Carbon::now()->addDay(1)->toDateString() )
-                                                    <tr class="danger">
-                                                        <td>{{ $process_audience->id }}</td>
-                                                        <td>{{ $process_audience->process->identification }}</td>
-                                                        <td>{{ $process_audience->date }}</td>
-                                                        <td>{{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}}</td>
-                                                        <td>{{ $process_audience->office->description }}</td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
+                                                    <!--{{ $validator = 0 }}-->
+                                                    @foreach($process_audience->process->processactors as $ActorsLawyers)
+                                                        @if($validator == 0)
+                                                            @if($ActorsLawyers->user_id == Auth::user()->id)
+                                                                    <!--{{ $validator = 1 }}-->
+                                                            @else
+                                                                    <!--{{ $validator = 0 }}-->
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                    @if($validator == 1)
+                                                        <tr class="danger">
+                                                            <td>{{ $process_audience->id }}</td>
+                                                            <td>{{ $process_audience->process->identification }}</td>
+                                                            <td>{{ $process_audience->date }}</td>
+                                                            <td>{{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}}</td>
+                                                            <td>{{ $process_audience->office->description }}</td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 @elseif(  $process_audience->date <= \Carbon\Carbon::now()->addDay(3)->toDateString() )
-                                                    <tr class="warning">
-                                                        <td>{{ $process_audience->id }}</td>
-                                                        <td>{{ $process_audience->process->identification }}</td>
-                                                        <td>{{ $process_audience->date }}</td>
-                                                        <td>{{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}}</td>
-                                                        <td>{{ $process_audience->office->description }}</td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
+                                                    <!--{{ $validator = 0 }}-->
+                                                    @foreach($process_audience->process->processactors as $ActorsLawyers)
+                                                        @if($validator == 0)
+                                                            @if($ActorsLawyers->user_id == Auth::user()->id)
+                                                                <!--{{ $validator = 1 }}-->
+                                                            @else
+                                                                <!--{{ $validator = 0 }}-->
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                    @if($validator == 1)
+                                                        <tr class="warning">
+                                                            <td>{{ $process_audience->id }}</td>
+                                                            <td>{{ $process_audience->process->identification }}</td>
+                                                            <td>{{ $process_audience->date }}</td>
+                                                            <td>{{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}}</td>
+                                                            <td>{{ $process_audience->office->description }}</td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 @elseif(   $process_audience->date >= \Carbon\Carbon::now()->addDay(4)->toDateString() )
-                                                    <tr class="success">
-                                                        <td>{{ $process_audience->id }}</td>
-                                                        <td>{{ $process_audience->process->identification }}</td>
-                                                        <td>{{ $process_audience->date }}</td>
-                                                        <td>{{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}}</td>
-                                                        <td>{{ $process_audience->office->description }}</td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                        <td>
-                                                            <ul><strong>Demandantes</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                            <ul><strong>Demandados</strong>
-                                                                @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
-                                                                        <li>{{ $ProcessActors->user->full_name }}</li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
+                                                    <!--{{ $validator = 0 }}-->
+                                                    @foreach($process_audience->process->processactors as $ActorsLawyers)
+                                                        @if($validator == 0)
+                                                            @if($ActorsLawyers->user_id == Auth::user()->id)
+                                                                <!--{{ $validator = 1 }}-->
+                                                            @else
+                                                                <!--{{ $validator = 0 }}-->
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                    @if($validator == 1)
+                                                        <tr class="success">
+                                                            <td>{{ $process_audience->id }}</td>
+                                                            <td>{{ $process_audience->process->identification }}</td>
+                                                            <td>{{ $process_audience->date }}</td>
+                                                            <td>{{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}}</td>
+                                                            <td>{{ $process_audience->office->description }}</td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                            <td>
+                                                                <ul><strong>Demandantes</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                                <ul><strong>Demandados</strong>
+                                                                    @foreach($process_audience->process->processactors as $ProcessActors)
+                                                                        @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
+                                                                            <li>{{ $ProcessActors->user->full_name }}</li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                             </tbody>

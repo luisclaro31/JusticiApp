@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\App\Home;
+namespace App\Http\Controllers\App\Lawyer;
 
+use App\ProcessActors;
 use App\ProcessAudiences;
 use App\ProcessMovements;
 use Carbon\Carbon;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -31,7 +33,7 @@ class HomeController extends Controller
         $process_movements = ProcessMovements::with('Process', 'Notification', 'Process.ProcessActors.User')->where('expiration_date', '>=' , $now)->orderBy('expiration_date', 'ASC')->paginate();
         $process_audiences = ProcessAudiences::with('Process', 'office', 'Process.ProcessActors.User')->where('date', '>=' , $now)->orderBy('date', 'ASC')->paginate();
 
-        return view('app.home.index', compact('process_movements', 'process_audiences'));
+        return view('app.lawyer.home.index', compact('process_movements', 'process_audiences'));
 
     }
 
