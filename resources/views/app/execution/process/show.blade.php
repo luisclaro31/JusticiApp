@@ -188,7 +188,11 @@
                                                 <dt>Despacho: </dt>
                                                 <dd><p><small class="text-muted"><i class="fa fa-building"></i> {{ $process_movement->office->description }}</small></dd>
                                                 <dt>Archivo: </dt>
-                                                <dd><p><a href="{{ asset('files/process_movements/'.$result->id.'/'.$process_movement->file) }}"  target="_blank" ><small class="text-muted"><i class="fa fa-file-pdf-o"></i> Ver Archivo</small></a></dd>
+                                                @if(! empty($process_movement->file))
+                                                    <dd><p><a href="{{ asset('files/process_movements/'.$result->id.'/'.$process_movement->file) }}"  target="_blank" ><small class="text-muted"><i class="fa fa-file-pdf-o"></i> Ver Archivo</small></a></dd>
+                                                @else
+                                                    <dd><p><small class="text-muted"><i class="fa fa-file-pdf-o"></i> No hay Archivo</small></dd>
+                                                @endif
                                                 <dt>Desciccion: </dt>
                                                 <dd><p><i class="fa fa-comment-o"></i> {{ $process_movement->description }}.</dd>
                                             </dl>
