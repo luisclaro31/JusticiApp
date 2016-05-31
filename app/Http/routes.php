@@ -70,6 +70,10 @@ Route::group(['prefix' => 'diario'], function () {
     Route::resource('verdict', 'VerdictController');
 });
 
+Route::group(['prefix' => 'report', 'middleware' => ['web']], function() {
+        Route::get('diary', 'Report\ReportController@diary');
+    });
+
 Route::get('sendemail', function () {
 
     $data = array(
