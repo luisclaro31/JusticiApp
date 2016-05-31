@@ -71,7 +71,7 @@ Route::group(['prefix' => 'diario'], function () {
 });
 
 Route::group(['prefix' => 'report', 'middleware' => ['web']], function() {
-        Route::get('diary', 'Report\ReportController@diary');
+        Route::get('diary', 'App\Report\ReportController@diary');
     });
 
 Route::get('sendemail', function () {

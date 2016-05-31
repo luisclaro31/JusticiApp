@@ -97,6 +97,8 @@ class ProcessMovementsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = ProcessMovements::findOrFail($id);
+        $result->delete();
+        return Redirect::back();
     }
 }

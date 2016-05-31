@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\report;
+namespace App\Http\Controllers\App\Report;
 
 use App\Http\Controllers\Controller;
+use App\ProcessAudiences;
+use App\ProcessMovements;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Vsmoraes\Pdf\Pdf;
@@ -34,7 +37,11 @@ class ReportController extends Controller
         $process_movements = ProcessMovements::with('Process', 'Notification', 'Process.ProcessActors.User')->where('expiration_date', '>=' , $now)->orderBy('expiration_date', 'ASC')->paginate();
         $process_audiences = ProcessAudiences::with('Process', 'office', 'Process.ProcessActors.User')->where('date', '>=' , $now)->orderBy('date', 'ASC')->paginate();
 
-        return view('app.home.index', compact('process_movements', 'process_audiences'));
+        $html = view('app.report.diary', compact('process_movements', 'process_audiences'));
+
+        return $this->pdf
+            ->load($html)
+            ->show();
 
     }
 

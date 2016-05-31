@@ -195,6 +195,9 @@
                                                 @endif
                                                 <dt>Desciccion: </dt>
                                                 <dd><p><i class="fa fa-comment-o"></i> {{ $process_movement->description }}.</dd>
+                                                {!! Form::open(['route' => ['execution.process_movements.destroy', $process_movement], 'method' => 'DELETE' ]) !!}
+                                                    <button type="submit" onclick="return confirm('Seguro que desea Eliminar El Movimiento con fecha de Expiracion de {{ \Carbon\Carbon::parse($process_movement->expiration_date)->formatLocalized('%A %d %B %Y') }} ')" class="btn btn-danger btn-sm">Eliminar</button>
+                                                {!! Form::close() !!}
                                             </dl>
                                         </div>
                                     </div>
@@ -213,8 +216,7 @@
                     <div class="panel-body">
                         <ul class="chat">
                             @foreach($process_audiences as $process_audience)
-
-                               <li class="left clearfix">
+                                <li class="left clearfix">
                                     <div class="chat-body clearfix">
                                         <div class="header">
                                             <strong class="primary-font">{{ $process_audience->office->description }}</strong>
@@ -222,6 +224,9 @@
                                         <p><i class="fa fa-calendar fa-fw"></i> {{ \Carbon\Carbon::parse($process_audience->date)->formatLocalized('%A %d %B %Y') }}</p>
                                         <p><i class="fa fa-clock-o fa-fw"></i> {{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}}</p>
                                     </div>
+                                    {!! Form::open(['route' => ['execution.process_audiences.destroy', $process_audience], 'method' => 'DELETE' ]) !!}
+                                        <button type="submit" onclick="return confirm('Seguro que desea Eliminar La Audiencia de {{ \Carbon\Carbon::parse($process_audience->date)->formatLocalized('%A %d %B %Y') }} alas {{ \Carbon\Carbon::parse($process_audience->time)->format('h:i A')}} ')" class="btn btn-danger btn-sm">Eliminar</button>
+                                    {!! Form::close() !!}
                                 </li>
                             @endforeach
                         </ul>

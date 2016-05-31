@@ -25,6 +25,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use \Illuminate\Support\Facades\Request as Requestss;
+use Illuminate\Support\Facades\Storage;
 
 class ProcessController extends Controller
 {
@@ -133,6 +134,9 @@ class ProcessController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = Process::findOrFail($id);
+        $result->delete();
+        Storage::deleteDirectory('process_movements'.'/'.$id);
+        return Redirect::route('execution.process.index');
     }
 }

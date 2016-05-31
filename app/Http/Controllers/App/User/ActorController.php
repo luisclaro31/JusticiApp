@@ -116,8 +116,7 @@ class ActorController extends Controller
     {
         $result = User::findOrFail($id);
         $result->delete();
-
         Session::flash('message', 'El Registro '. $result->full_name . ' Fue Eliminado Con Exito ');
-        return redirect()->route('user.actor.create');
+        return Redirect::route('user.actor.create');
     }
 }

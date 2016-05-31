@@ -87,6 +87,8 @@ class ProcessAudiencesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = ProcessAudiences::findOrFail($id);
+        $result->delete();
+        return Redirect::back();
     }
 }
