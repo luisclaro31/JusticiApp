@@ -1,0 +1,1 @@
+<link href="{{ asset('report/style.css') }}" rel="stylesheet" media="all">

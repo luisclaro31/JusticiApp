@@ -88,6 +88,16 @@ Route::get('sendemail', function () {
 
 });
 
+Route::get('prueba', function() {
+    return view('report.body.content');
+});
+
+Route::get('pdf', function() {
+   $html = view('report.body.content')->render();
+   return Pdf::load($html)->show();
+});
+
+
 //Route::group(['middleware' => ['web']], function () {
     //
 //});

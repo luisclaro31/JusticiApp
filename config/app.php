@@ -152,6 +152,7 @@ return [
 		 * Vendor Service Provider User.Me
 		 */
         Collective\Html\HtmlServiceProvider::class,
+        Vsmoraes\Pdf\PdfServiceProvider::class,
 
 
         /*
@@ -215,6 +216,7 @@ return [
 		 */
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Pdf' => Vsmoraes\Pdf\PdfFacade::class,
 
 
     ],
