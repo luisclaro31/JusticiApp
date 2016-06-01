@@ -36,14 +36,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
@@ -52,14 +52,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
@@ -75,14 +75,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
@@ -91,14 +91,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
@@ -114,14 +114,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
@@ -130,14 +130,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_movement->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
@@ -185,14 +185,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
@@ -201,14 +201,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
@@ -225,14 +225,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
@@ -241,14 +241,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
@@ -265,14 +265,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id > 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
@@ -281,14 +281,14 @@
                                                         <td>
                                                             <ul><strong>Demandantes</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 1 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>
                                                             <ul><strong>Demandados</strong>
                                                                 @foreach($process_audience->process->processactors as $ProcessActors)
-                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 2)
+                                                                    @if($ProcessActors->part_id == 2 && $ProcessActors->user->type_id == 4)
                                                                         <li>{{ $ProcessActors->user->full_name }}</li>
                                                                     @endif
                                                                 @endforeach
