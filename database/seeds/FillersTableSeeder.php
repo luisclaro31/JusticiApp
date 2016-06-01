@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Carbon\Carbon;
 
 class FillersTableSeeder extends Seeder
 {
@@ -13,6 +14,7 @@ class FillersTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
+        $now = Carbon::now();
 
         for($i = 0; $i < 100; $i ++)
         {
@@ -118,7 +120,7 @@ class FillersTableSeeder extends Seeder
 
                 \DB::table('process_audiences')->insert(array(
                     'process_id'            => $id,
-                    'date'                  => $faker->date($format = 'Y-m-d', $max = 'now'),
+                    'date'                  => $now->addDay($id)->toDateString(),
                     'time'                  => $faker->time($format = 'H:i:s', $max = 'now'),
                     'office_id'             => $faker->biasedNumberBetween($min = 1, $max = 100, $function = 'sqrt'),
                 ));
@@ -126,9 +128,9 @@ class FillersTableSeeder extends Seeder
                 \DB::table('process_movements')->insert(array(
                     'process_id'            => $id,
                     'description'           => $faker->text($maxNbChars = 200),
-                    'date'                  => $faker->date($format = 'Y-m-d', $max = 'now'),
-                    'notification_date'     => $faker->date($format = 'Y-m-d', $max = 'now'),
-                    'expiration_date'       => $faker->date($format = 'Y-m-d', $max = 'now'),
+                    'date'                  => $now->addDay($id)->toDateString(),
+                    'notification_date'     => $now->addDay($id)->toDateString(),
+                    'expiration_date'       => $now->addDay($id)->toDateString(),
                     'office_id'             => $faker->biasedNumberBetween($min = 1, $max = 100, $function = 'sqrt'),
                     'notification_id'       => $faker->biasedNumberBetween($min = 1, $max = 20, $function = 'sqrt'),
                     'email'                 => $faker->unique()->email,

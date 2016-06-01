@@ -22,9 +22,10 @@ class Verdict extends Model
 
     public function scopeMunicipality($query, $municipality)
     {
+
         if ($municipality != "" )
         {
-            $query->where('office_id', $municipality);
+            $query->where('municipality_id', $municipality);
         }
 
     }
